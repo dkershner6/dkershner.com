@@ -33,9 +33,10 @@ const Projects = ({
     const [categoryFilter, setCategoryFilter] = useState(ProjectCategory.ALL);
     const openSourceProjects = formatReposAsProjects(repos);
 
-    const allProjects = useMemo(() => [...openSourceProjects, ...projectData], [
-        openSourceProjects
-    ]);
+    const allProjects = useMemo(
+        () => [...openSourceProjects, ...projectData],
+        [openSourceProjects]
+    );
 
     const isInCategory = useCallback(
         (project: Project) => {

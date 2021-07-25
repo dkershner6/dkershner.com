@@ -6,8 +6,7 @@ const mobileApps: Omit<Project, 'category'>[] = [
         topics: [GitHubTopic.REACT_NATIVE],
         name: 'Picky Club',
         link: {
-            ios:
-                'https://apps.apple.com/us/app/picky-club/id1525613638?itsct=apps_box&itscg=30200',
+            ios: 'https://apps.apple.com/us/app/picky-club/id1525613638?itsct=apps_box&itscg=30200',
             android:
                 'https://play.google.com/store/apps/details?id=com.dkershner.pickymobile&hl=en_US&gl=US'
         },

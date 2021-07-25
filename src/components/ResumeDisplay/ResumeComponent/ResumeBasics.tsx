@@ -5,7 +5,6 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import HomeIcon from '@material-ui/icons/Home';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { useRouter } from 'next/router';
-import QrCode from 'react-qr-code';
 import styled from 'styled-components';
 
 import {
