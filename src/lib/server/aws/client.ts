@@ -1,8 +1,8 @@
 import AWS from 'aws-sdk';
 
 AWS.config.credentials = {
-    accessKeyId: process.env.AWS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET
+    accessKeyId: process.env.KEY_ID,
+    secretAccessKey: process.env.SECRET_KEY
 };
 
 export const DYNAMO_TABLE_NAME = process.env.DYNAMO_TABLE_NAME;
