@@ -17,27 +17,27 @@ const HomePage = (props: HomePageProps): ReactElement => {
     return <Home {...props} serverDate={new Date(props.serverDate)} />;
 };
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-    const octokit = new Octokit();
-    const [codingStats, { data }] = await Promise.all([
-        getCodingStats(),
-        octokit.repos.listForUser({
-            username: 'dkershner6',
-            per_page: 100,
-            headers: {
-                accept: 'application/vnd.github.mercy-preview+json' // topics
-            }
-        })
-    ]);
+// export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+//     const octokit = new Octokit();
+//     const [codingStats, { data }] = await Promise.all([
+//         getCodingStats(),
+//         octokit.repos.listForUser({
+//             username: 'dkershner6',
+//             per_page: 100,
+//             headers: {
+//                 accept: 'application/vnd.github.mercy-preview+json' // topics
+//             }
+//         })
+//     ]);
 
-    return {
-        props: {
-            codingStats,
-            repos: data,
-            serverDate: Number(new Date())
-        },
-        revalidate: 60 * 30 // In seconds
-    };
-};
+//     return {
+//         props: {
+//             codingStats,
+//             repos: data,
+//             serverDate: Number(new Date())
+//         },
+//         revalidate: 60 * 30 // In seconds
+//     };
+// };
 
 export default HomePage;
