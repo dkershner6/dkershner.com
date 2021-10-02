@@ -77,7 +77,7 @@ const InfoGrid = (): ReactElement => {
                                     variant="h4"
                                     component="h3"
                                 >
-                                    Technical Leader
+                                    Knowledgeable
                                 </Typography>
                             }
                             hoverContent={
