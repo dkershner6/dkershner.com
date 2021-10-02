@@ -6,6 +6,9 @@ on:
 
 jobs:
   pr-checks:
+    defaults:
+      run:
+        working-directory: frontend
     runs-on: ubuntu-latest
 
     steps:
