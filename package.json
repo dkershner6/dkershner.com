@@ -5,7 +5,7 @@
     "scripts": {
         "test": "sst test",
         "start": "sst start --stage dev",
-        "build": "sst build",
+        "build": "sst build --stage prod",
         "deploy": "sst deploy --stage prod",
         "remove": "sst remove"
     },
