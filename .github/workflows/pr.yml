@@ -38,7 +38,7 @@ jobs:
         uses: dkershner6/jest-coverage-commenter-action@v1
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-          test_command: "npm run test:coverage"
+          test_command: "cd frontend && npm run test:coverage"
 
       - name: Fail on no version updated
         if: steps.versioncheck.outputs.changed != 'true'
