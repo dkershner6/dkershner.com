@@ -1,6 +1,5 @@
 {
-    "name": "dkershnercom-infra",
+    "name": "DKershnercom",
     "region": "us-west-2",
-    "stage": "dev",
     "main": "lib/index.ts"
 }

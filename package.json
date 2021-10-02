@@ -1,12 +1,12 @@
 {
     "name": "dkershnercom-infra",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "private": true,
     "scripts": {
         "test": "sst test",
-        "start": "sst start",
-        "build": "sst build",
-        "deploy": "sst deploy",
+        "start": "sst start --stage dev",
+        "build": "sst build --stage prod",
+        "deploy": "sst deploy --stage prod",
         "remove": "sst remove"
     },
     "devDependencies": {
