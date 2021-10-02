@@ -21,12 +21,6 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: Ensure .npmrc and .env are .gitignored
-        id: gitignore-parser
-        uses: dkershner6/gitignore-parser@v1
-        with:
-            must_deny: '.npmrc,.env'
-
       - run: npm ci
       - run: npm run type-check
       - run: npm run lint
