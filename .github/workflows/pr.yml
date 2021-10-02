@@ -6,6 +6,9 @@ on:
 
 jobs:
   pr-checks:
+    defaults:
+      run:
+        working-directory: frontend
     runs-on: ubuntu-latest
 
     steps:
@@ -17,12 +20,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-
-      - name: Ensure .npmrc and .env are .gitignored
-        id: gitignore-parser
-        uses: dkershner6/gitignore-parser@v1
-        with:
-            must_deny: '.npmrc,.env'
 
       - run: npm ci
       - run: npm run type-check
@@ -41,7 +38,7 @@ jobs:
         uses: dkershner6/jest-coverage-commenter-action@v1
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-          test_command: "npm run test:coverage"
+          test_command: "cd frontend && npm run test:coverage"
 
       - name: Fail on no version updated
         if: steps.versioncheck.outputs.changed != 'true'
