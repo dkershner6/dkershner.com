@@ -49,7 +49,7 @@ export default class MyStack extends sst.Stack {
         });
 
         // @ts-expect-error - I think this will work, even though it has an error
-        site.attachPermissions([[table, "grantReadWriteData"]]);
+        site.attachPermissions([[this.table, "grantReadWriteData"]]);
 
         this.addOutputs({
             url: site.url,
