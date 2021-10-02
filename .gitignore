@@ -1,23 +1,24 @@
-# Project dependencies
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-node_modules
-.cache/
-.VSCodeCounter
-coverage
-content-build
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# next.js
-.next
-*/.next/
-*/out/
+# dependencies
+/node_modules
+
+# testing
+/coverage
 
 # production
-*/build
+/build
 
-# Build directory
+# misc
 .DS_Store
-yarn-error.log
-.vercel
 
-.env
-.npmrc
+# sst build output
+.build
+.sst
+
+# environments
+.env*.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
