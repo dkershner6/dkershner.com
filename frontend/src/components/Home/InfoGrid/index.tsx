@@ -77,21 +77,15 @@ const InfoGrid = (): ReactElement => {
                                     variant="h4"
                                     component="h3"
                                 >
-                                    Knowledgeable
+                                    Versatile
                                 </Typography>
                             }
                             hoverContent={
                                 <>
-                                    <ListItem
-                                        button
-                                        component="a"
-                                        href="https://www.linkedin.com/in/derek-kershner-54b3392/"
-                                    >
-                                        <ListItemText>
-                                            Infrastructure to Frontend to
-                                            Architecture
-                                        </ListItemText>
-                                    </ListItem>
+                                    <ListItemText>
+                                        Architecture to DevOps Infrastructure to
+                                        Frontend
+                                    </ListItemText>
                                 </>
                             }
                         />
@@ -126,9 +120,9 @@ const InfoGrid = (): ReactElement => {
                                         href="https://www.linkedin.com/in/derek-kershner-54b3392/"
                                     >
                                         <ListItemText>
-                                            Technical architecture leadership
-                                            from start-ups to medium-size
-                                            companies, AWS to Azure
+                                            Architecture leadership from
+                                            start-ups to medium-size companies,
+                                            AWS to Azure
                                         </ListItemText>
                                     </ListItem>
                                 </>
