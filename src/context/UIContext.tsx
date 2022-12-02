@@ -1,19 +1,21 @@
 import React, {
     createContext,
+    ReactElement,
+    ReactNode,
     useEffect,
     useMemo,
     useRef,
     useState,
 } from "react";
 
-import { PaletteType, Theme } from "@material-ui/core";
+import { PaletteMode, Theme } from "@mui/material";
 
 import DarkTheme from "../styles/DarkTheme";
 import LightTheme from "../styles/LightTheme";
 
 export interface UIContextOutput {
-    themeType: PaletteType;
-    setThemeType: React.Dispatch<React.SetStateAction<PaletteType>>;
+    themeType: PaletteMode;
+    setThemeType: React.Dispatch<React.SetStateAction<PaletteMode>>;
     theme: Theme;
 }
 
@@ -23,9 +25,13 @@ const UIContext = createContext<UIContextOutput>(
 
 const THEME_TYPE_STORAGE_KEY = "dkershner-theme-type";
 
-export const UIContextProvider: React.FC = ({ children }) => {
+export const UIContextProvider = ({
+    children,
+}: {
+    children: ReactNode;
+}): ReactElement => {
     const initialStorageCheckComplete = useRef(false);
-    const [themeType, setThemeType] = useState<PaletteType>("light");
+    const [themeType, setThemeType] = useState<PaletteMode>("light");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -35,7 +41,7 @@ export const UIContextProvider: React.FC = ({ children }) => {
                 );
 
                 if (themeTypefromStorage) {
-                    setThemeType(themeTypefromStorage as PaletteType);
+                    setThemeType(themeTypefromStorage as PaletteMode);
                 }
                 initialStorageCheckComplete.current = true;
                 return;

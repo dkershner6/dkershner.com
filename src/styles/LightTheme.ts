@@ -1,10 +1,10 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 
 export type ThemeType = typeof LightTheme;
 
-const LightTheme = createMuiTheme({
+const LightTheme = createTheme({
     palette: {
-        type: "light",
+        mode: "light",
         primary: { main: "#1170D0" },
         secondary: { main: "#EA0656" },
         info: { main: "#3f51b5" },

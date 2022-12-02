@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement, ReactNode } from "react";
 
 import { render, screen } from "@testing-library/react";
 import ReactDOM from "react-dom";
@@ -18,7 +18,11 @@ describe("Home", () => {
         jest.useRealTimers();
     });
 
-    const TestWrapper: React.FC = ({ children }) => {
+    const TestWrapper = ({
+        children,
+    }: {
+        children: ReactNode;
+    }): ReactElement => {
         return (
             <UIContextProvider>
                 <ThemeProviders>{children}</ThemeProviders>
