@@ -7,3 +7,4 @@ jest.config.js
 next.config.js
 src/styles/css
 public
+package.json

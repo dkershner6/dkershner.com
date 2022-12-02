@@ -1,0 +1,5 @@
+{
+    "name": "DKershnercom",
+    "region": "us-west-2",
+    "main": "lib/index.ts"
+}
