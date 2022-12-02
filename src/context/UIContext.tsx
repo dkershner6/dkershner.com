@@ -17,7 +17,9 @@ export interface UIContextOutput {
     theme: Theme;
 }
 
-const UIContext = createContext<UIContextOutput>(undefined);
+const UIContext = createContext<UIContextOutput>(
+    undefined as unknown as UIContextOutput
+);
 
 const THEME_TYPE_STORAGE_KEY = "dkershner-theme-type";
 
