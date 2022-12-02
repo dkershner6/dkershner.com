@@ -18,7 +18,7 @@
     "format-check": "prettier --check .",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "eslint ./src --ext .tsx,.ts,.js,.jsx",
+    "lint": "eslint ./src --ext .tsx,.ts,.js,.jsx --max-warnings 0",
     "lint:fix": "eslint ./src --ext .tsx,.ts,.js,.jsx --fix",
     "type-check": "tsc --noEmit"
   },
