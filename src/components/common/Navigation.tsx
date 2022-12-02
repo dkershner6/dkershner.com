@@ -1,44 +1,21 @@
 import React, { ReactElement, useContext } from "react";
 
+import SunMoonIcon from "@mui/icons-material/Brightness4";
 import {
     AppBar,
     Avatar,
+    AvatarProps,
+    Box,
     IconButton,
     Link,
     Toolbar,
     Tooltip,
-} from "@material-ui/core";
-import SunMoonIcon from "@material-ui/icons/Brightness4";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import styled from "styled-components";
+} from "@mui/material";
 
 import UIContext from "../../context/UIContext";
 
-const HeaderLeft = styled.div`
-    flex: 1;
-`;
-
-const HeaderRight = styled.div`
-    display: flex;
-    align-items: center;
-    color: #fff;
-`;
-
-const WhiteGitHubIcon = styled(GitHubIcon)`
-    color: #fff;
-`;
-
-const WhiteSunMoonIcon = styled(SunMoonIcon)`
-    color: #fff;
-`;
-
-const LighthouseContainer = styled.div`
-    display: flex;
-    margin-right: 1rem;
-`;
-
-const avatarProps = {
-    style: {
+const avatarProps: AvatarProps = {
+    sx: {
         backgroundColor: "#008800",
         color: "#fff",
     },
@@ -53,9 +30,12 @@ const Navigation = (): ReactElement => {
             color={themeType === "light" ? "primary" : "transparent"}
         >
             <Toolbar>
-                <HeaderLeft></HeaderLeft>
-                <HeaderRight>
-                    <LighthouseContainer>
+                <Box flex="1"></Box>
+                <Box display="flex" alignItems="center" color="#fff">
+                    <Box
+                        display="flex"
+                        marginRight={(theme) => theme.spacing(1)}
+                    >
                         <Tooltip title="Lighthouse Performance">
                             <Link
                                 href="https://developers.google.com/web/tools/lighthouse"
@@ -92,17 +72,7 @@ const Navigation = (): ReactElement => {
                                 <Avatar {...avatarProps}>100</Avatar>
                             </Link>
                         </Tooltip>
-                    </LighthouseContainer>
-                    <Tooltip title="Source code">
-                        <IconButton
-                            href="https://github.com/dkershner6/dkershner.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="See Source Code"
-                        >
-                            <WhiteGitHubIcon />
-                        </IconButton>
-                    </Tooltip>
+                    </Box>
                     <Tooltip title="Light/Dark Mode">
                         <IconButton
                             onClick={() =>
@@ -112,10 +82,10 @@ const Navigation = (): ReactElement => {
                             }
                             aria-label="Toggle Light/Dark Mode"
                         >
-                            <WhiteSunMoonIcon />
+                            <SunMoonIcon htmlColor="#fff" />
                         </IconButton>
                     </Tooltip>
-                </HeaderRight>
+                </Box>
             </Toolbar>
         </AppBar>
     );

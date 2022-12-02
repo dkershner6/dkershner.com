@@ -10,6 +10,5 @@
 
 ### Infrastructure
 
--   Stack: Defined as code using AWS CDK & Serverless Stack.
+-   Stack: Defined as code using AWS CDK.
 -   CI/CD: Deployed using GitHub actions.
--   Database: DynamoDB using single table design.

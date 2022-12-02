@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+cdk.out
+.next
+
 # dependencies
 /node_modules
 
@@ -14,6 +17,17 @@
 
 .env
 .npmrc
+
+# sst build output
+.build
+.sst
+
+# environments
+.env*.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
@@ -36,13 +50,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-# sst build output
-.build
-.sst
-
-# environments
-.env*.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*

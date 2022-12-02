@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 
-import { ServerStyleSheets } from "@material-ui/core/styles";
+import createEmotionServer from "@emotion/server/create-instance";
 import Document, {
     Html,
     Head,
@@ -9,12 +9,14 @@ import Document, {
     DocumentInitialProps,
     DocumentContext,
 } from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import Script from "next/script";
+
+import createEmotionCache from "../lib/common/createEmotionCache";
 
 export const siteMetadata = {
     siteUrl: "https://dkershner.com",
     title: "DKershner.com",
-    description: "Prolific Software Architect - AWS / Azure",
+    description: "Software Leadership",
 };
 
 class MyDocument extends Document {
@@ -34,26 +36,6 @@ class MyDocument extends Document {
                         content={siteMetadata.description}
                     />
 
-                    <link
-                        rel="apple-touch-icon"
-                        sizes="180x180"
-                        href={`/img/apple-touch-icon.png`}
-                    />
-                    <link
-                        rel="icon"
-                        type="image/png"
-                        href={`/img/favicon-32x32.png`}
-                        sizes="32x32"
-                    />
-                    <link
-                        rel="icon"
-                        type="image/png"
-                        href={`/img/favicon-16x16.png`}
-                        sizes="16x16"
-                    />
-
-                    <meta name="theme-color" content="#fff" />
-
                     <meta property="og:type" content="business.business" />
                     <meta property="og:title" content={siteMetadata.title} />
                     <meta property="og:url" content="/" />
@@ -63,6 +45,12 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
                     />
                 </Head>
+                <Script
+                    type="module"
+                    id="ui-theme-script"
+                    src="../scripts/setUITheme.js"
+                    strategy="beforeInteractive"
+                />
                 <body>
                     <Main />
                     <NextScript />
@@ -73,7 +61,7 @@ class MyDocument extends Document {
 }
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
-// it's compatible with server-side generation (SSG).
+// it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
     // Resolution order
     //
@@ -97,34 +85,41 @@ MyDocument.getInitialProps = async (ctx) => {
     // 3. app.render
     // 4. page.render
 
-    // Render app and page and get the context of the page with collected side effects.
-    const sheets = new ServerStyleSheets();
-    const styleSheets = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
-    try {
-        ctx.renderPage = () =>
-            originalRenderPage({
-                enhanceApp: (App) => (props) =>
-                    styleSheets.collectStyles(
-                        sheets.collect(<App {...props} />)
-                    ),
-            });
+    // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
+    // However, be aware that it can have global side effects.
+    const cache = createEmotionCache();
+    const { extractCriticalToChunks } = createEmotionServer(cache);
 
-        const initialProps = await Document.getInitialProps(ctx);
+    ctx.renderPage = () =>
+        originalRenderPage({
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            enhanceApp: (App: any) => (props) =>
+                <App emotionCache={cache} {...props} />,
+        });
 
-        return {
-            ...initialProps,
-            // Styles fragment is rendered after the app and page rendering finish.
-            styles: [
-                ...React.Children.toArray(initialProps.styles),
-                styleSheets.getStyleElement(),
-                sheets.getStyleElement(),
-            ],
-        };
-    } finally {
-        styleSheets.seal();
-    }
+    const initialProps = await Document.getInitialProps(ctx);
+    // This is important. It prevents emotion to render invalid HTML.
+    // See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
+    const emotionStyles = extractCriticalToChunks(initialProps.html);
+    const emotionStyleTags = emotionStyles.styles.map((style) => (
+        <style
+            data-emotion={`${style.key} ${style.ids.join(" ")}`}
+            key={style.key}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: style.css }}
+        />
+    ));
+
+    return {
+        ...initialProps,
+        // Styles fragment is rendered after the app and page rendering finish.
+        styles: [
+            ...React.Children.toArray(initialProps.styles),
+            ...emotionStyleTags,
+        ],
+    };
 };
 
 export default MyDocument;

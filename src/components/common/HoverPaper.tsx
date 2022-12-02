@@ -1,15 +1,6 @@
 import React, { ReactElement, useMemo, useState } from "react";
 
-import { Fade, Paper } from "@material-ui/core";
-import styled from "styled-components";
-
-const PaddedPaper = styled(Paper)`
-    display: flex;
-    padding: 1rem;
-    height: 15rem;
-    align-items: center;
-    justify-content: center;
-`;
+import { Fade, Paper } from "@mui/material";
 
 const HoverPaper = ({
     hoverContent,
@@ -53,17 +44,22 @@ const HoverPaper = ({
     };
 
     return (
-        <div>
-            <PaddedPaper
-                elevation={6}
-                onMouseEnter={() => {
-                    setIsHovering(true);
-                }}
-                onMouseLeave={() => setIsHovering(false)}
-            >
-                <div>{renderContent()}</div>
-            </PaddedPaper>
-        </div>
+        <Paper
+            sx={{
+                display: "flex",
+                padding: "1rem",
+                height: "15rem",
+                alignItems: "center",
+                justifyContent: "center",
+            }}
+            elevation={6}
+            onMouseEnter={() => {
+                setIsHovering(true);
+            }}
+            onMouseLeave={() => setIsHovering(false)}
+        >
+            <div>{renderContent()}</div>
+        </Paper>
     );
 };
 
