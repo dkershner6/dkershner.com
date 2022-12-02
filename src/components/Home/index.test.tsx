@@ -42,17 +42,4 @@ describe("Home", () => {
 
         expect(true).toBeTruthy();
     });
-
-    it("has correct heading and subheading", async () => {
-        const { queryByText } = render(
-            <TestWrapper>
-                <Home />
-            </TestWrapper>
-        );
-
-        expect(queryByText("Derek Kershner")).toBeInTheDocument();
-        expect(screen.queryByText("Evil Genius")).toBeNull();
-
-        expect(queryByText("Software Architect")).toBeInTheDocument();
-    });
 });
