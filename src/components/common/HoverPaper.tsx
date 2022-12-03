@@ -18,7 +18,7 @@ const HoverPaper = ({
         [defaultNeedsToExit, isHovering, hoverNeedsToExit]
     );
 
-    const renderContent = () => {
+    const renderContent = (): ReactElement => {
         if (displayHover) {
             return (
                 <Fade
