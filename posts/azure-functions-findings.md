@@ -13,3 +13,4 @@ title: Azure Functions Tips & Tricks
 -   When using Node, all functions must be in the root in order to run locally. This means no monorepos or any form of organization when using Functions.
 -   In order to run locally when using queue-triggered functions, you must have a local storage emulator running. The simplest method is to install azurite globally `npm i -g azurite`, then just simply run `azurite`.
     -   You can also install the VSCode function by the same name, which is also pretty simple to use.
+-   If you get odd eslint or prettier behavior when using the Azure extensions to generate code, try changing the line endings from CRLF to LF.
