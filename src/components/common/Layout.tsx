@@ -1,5 +1,6 @@
 import React, { ReactElement, ReactNode } from "react";
 
+import { Box } from "@mui/material";
 import Head from "next/head";
 
 import Footer from "./Footer";
@@ -38,7 +39,9 @@ const PageLayout = (props): ReactElement => {
         return (
             <>
                 <Navigation />
-                <main>{children}</main>
+                <Box component="main" minHeight="calc(100vh - 56px)">
+                    {children}
+                </Box>
                 <Footer />
             </>
         );

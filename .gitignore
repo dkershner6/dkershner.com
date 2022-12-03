@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+public/sitemap*.xml
+public/sitemap.xml
+
 cdk.out
 .next
 
@@ -14,8 +17,6 @@ cdk.out
 
 # misc
 .DS_Store
-
-.env
 .npmrc
 
 # sst build output

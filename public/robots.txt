@@ -1,2 +1,9 @@
+# *
 User-agent: *
+Allow: /
+
+# Host
+Host: https://dkershner.com
+
+# Sitemaps
 Sitemap: https://dkershner.com/sitemap.xml

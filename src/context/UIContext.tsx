@@ -31,7 +31,7 @@ export const UIContextProvider = ({
     children: ReactNode;
 }): ReactElement => {
     const initialStorageCheckComplete = useRef(false);
-    const [themeType, setThemeType] = useState<PaletteMode>("light");
+    const [themeType, setThemeType] = useState<PaletteMode>("dark");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
