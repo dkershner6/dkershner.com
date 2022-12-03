@@ -14,6 +14,8 @@ import {
 
 import UIContext from "../../context/UIContext";
 
+import NavigationMenu from "./NavigationMenu";
+
 const Navigation = (): ReactElement => {
     const theme = useTheme();
     const { themeType, setThemeType } = useContext(UIContext);
@@ -21,13 +23,15 @@ const Navigation = (): ReactElement => {
     return (
         <AppBar position="static" color={"primary"}>
             <Toolbar>
-                <Box flex="1">
+                <Box>
                     <Typography variant="h6">
                         {process.env.NEXT_PUBLIC_BASE_TITLE ??
                             "Kershner Endeavors"}
                     </Typography>
                 </Box>
-
+                <Box display="flex" flex="1" justifyContent="center">
+                    <NavigationMenu />
+                </Box>
                 <Box>
                     <Tooltip
                         title={

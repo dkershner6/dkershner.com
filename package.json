@@ -1,7 +1,7 @@
 {
   "name": "DKershner.com",
   "description": "Derek Kershner's website.",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "author": "Derek Kershner",
   "private": true,
   "license": "MIT",
@@ -30,6 +30,7 @@
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.16",
+    "@mui/lab": "^5.0.0-alpha.110",
     "@mui/material": "^5.10.16",
     "next": "^13.0.6",
     "next-connect": "^0.13.0",
