@@ -14,8 +14,8 @@ import Script from "next/script";
 import createEmotionCache from "../lib/common/createEmotionCache";
 
 export const siteMetadata = {
-    siteUrl: "https://dkershner.com",
-    title: "DKershner.com",
+    siteUrl: process.env.NEXT_PUBLIC_DOMAIN_NAME,
+    title: process.env.NEXT_PUBLIC_BASE_TITLE,
     description: "Software Leadership",
 };
 

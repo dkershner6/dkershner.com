@@ -14,8 +14,6 @@ cdk.out
 
 # misc
 .DS_Store
-
-.env
 .npmrc
 
 # sst build output

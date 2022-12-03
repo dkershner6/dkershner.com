@@ -32,7 +32,10 @@ const Navigation = (): ReactElement => {
         >
             <Toolbar>
                 <Box flex="1">
-                    <Typography variant="h6">Kershner Endeavors</Typography>
+                    <Typography variant="h6">
+                        {process.env.NEXT_PUBLIC_BASE_TITLE ??
+                            "Kershner Endeavors"}
+                    </Typography>
                 </Box>
 
                 <Tooltip title="Light/Dark Mode">

@@ -5,7 +5,7 @@ import { AppBar, Box, Toolbar } from "@mui/material";
 import packageJson from "../../../package.json";
 
 const COPYRIGHT = <>&copy;</>;
-export const COPYRIGHT_COMPANY_NAME = "Kershner Endeavors LLC";
+export const COPYRIGHT_COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME;
 
 const Footer = (): ReactElement => {
     return (
