@@ -3,24 +3,14 @@ import React, { ReactElement, useContext } from "react";
 import SunMoonIcon from "@mui/icons-material/Brightness4";
 import {
     AppBar,
-    Avatar,
-    AvatarProps,
     Box,
     IconButton,
-    Link,
     Toolbar,
     Tooltip,
     Typography,
 } from "@mui/material";
 
 import UIContext from "../../context/UIContext";
-
-const avatarProps: AvatarProps = {
-    sx: {
-        backgroundColor: "#008800",
-        color: "#fff",
-    },
-};
 
 const Navigation = (): ReactElement => {
     const { themeType, setThemeType } = useContext(UIContext);

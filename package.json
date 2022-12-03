@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:next",
+    "postbuild": "next-sitemap",
     "build:next": "next build",
     "build:cleanup": "find ./lib -name '*.js' -delete && find ./lib -name '*.d.ts' -delete && find ./bin -name '*.js' -delete && find ./bin -name '*.d.ts' -delete",
     "deploy": "cdk deploy --all --require-approval never",
@@ -32,6 +33,7 @@
     "@mui/material": "^5.10.16",
     "next": "^13.0.6",
     "next-connect": "^0.13.0",
+    "next-sitemap": "^3.1.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.1",
