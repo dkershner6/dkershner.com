@@ -1,33 +1,37 @@
-import React, { ReactElement, ReactNode } from "react";
+import React, { PropsWithChildren, ReactElement, ReactNode } from "react";
 
 import { Box } from "@mui/material";
-import Head from "next/head";
 
 import Footer from "./Footer";
 import Navigation from "./Navigation";
 
 interface LayoutProps {
-    title?: string;
     children: ReactNode;
 }
 
+type PageFormat = "print" | "printCover" | "printCombined" | "";
+
 const Layout = (props: LayoutProps): ReactElement => {
-    const { children, title } = props;
+    const { children } = props;
     const urlParams =
         typeof window !== "undefined"
             ? new URLSearchParams(window.location.search)
             : undefined;
-    const format = urlParams === undefined ? "" : urlParams.get("format");
+    const format =
+        urlParams === undefined ? "" : (urlParams.get("format") as PageFormat);
 
     return (
         <>
-            <Head>{title ? <title>{title}</title> : null}</Head>
             <PageLayout format={format}>{children}</PageLayout>
         </>
     );
 };
 
-const PageLayout = (props): ReactElement => {
+const PageLayout = (
+    props: PropsWithChildren<{
+        format: PageFormat;
+    }>
+): ReactElement => {
     const { format, children } = props;
     if (
         format === "print" ||
