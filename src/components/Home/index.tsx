@@ -120,14 +120,18 @@ const Home = (): ReactElement => {
                                 subheader="Limitless potential"
                             />
                             <CardContent>
-                                <ListItem>Build new functionality.</ListItem>
-                                <ListItem>
-                                    Improve existing functionality.
-                                </ListItem>
-                                <ListItem>
-                                    Maintain high quality for the lowest
-                                    possible future maintenance.
-                                </ListItem>
+                                <List>
+                                    <ListItem>
+                                        Build new functionality.
+                                    </ListItem>
+                                    <ListItem>
+                                        Improve existing functionality.
+                                    </ListItem>
+                                    <ListItem>
+                                        Maintain high quality for the lowest
+                                        possible future maintenance.
+                                    </ListItem>
+                                </List>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -138,12 +142,14 @@ const Home = (): ReactElement => {
                                 subheader="Nimble, accurate decision making"
                             />
                             <CardContent>
-                                <ListItem>
-                                    Automate extraction and transformation.
-                                </ListItem>
-                                <ListItem>Maximize value.</ListItem>
-                                <ListItem>Visualize patterns.</ListItem>
-                                <ListItem>Act.</ListItem>
+                                <List>
+                                    <ListItem>
+                                        Automate extraction and transformation.
+                                    </ListItem>
+                                    <ListItem>Maximize value.</ListItem>
+                                    <ListItem>Visualize patterns.</ListItem>
+                                    <ListItem>Act.</ListItem>
+                                </List>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -154,12 +160,16 @@ const Home = (): ReactElement => {
                                 subheader="Expand Capabilities"
                             />
                             <CardContent>
-                                <ListItem>Aid the search.</ListItem>
-                                <ListItem>
-                                    Assess incoming talent for impact.
-                                </ListItem>
-                                <ListItem>Ensure cultural fit.</ListItem>
-                                <ListItem>Maximize Engineer learning.</ListItem>
+                                <List>
+                                    <ListItem>Aid the search.</ListItem>
+                                    <ListItem>
+                                        Assess incoming talent for impact.
+                                    </ListItem>
+                                    <ListItem>Ensure cultural fit.</ListItem>
+                                    <ListItem>
+                                        Maximize Engineer learning.
+                                    </ListItem>
+                                </List>
                             </CardContent>
                         </Card>
                     </Grid>

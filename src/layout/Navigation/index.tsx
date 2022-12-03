@@ -5,10 +5,12 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import {
     AppBar,
     Box,
+    Hidden,
     IconButton,
     Toolbar,
     Tooltip,
     Typography,
+    useMediaQuery,
     useTheme,
 } from "@mui/material";
 
@@ -20,16 +22,31 @@ const Navigation = (): ReactElement => {
     const theme = useTheme();
     const { themeType, setThemeType } = useContext(UIContext);
 
+    const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const renderCompanyTitle = (): ReactElement | null => {
+        if (isSm) {
+            return null;
+        }
+
+        return (
+            <Box>
+                <Typography variant="h6">
+                    {process.env.NEXT_PUBLIC_BASE_TITLE ?? "Kershner Endeavors"}
+                </Typography>
+            </Box>
+        );
+    };
+
     return (
         <AppBar position="static" color={"primary"}>
             <Toolbar>
-                <Box>
-                    <Typography variant="h6">
-                        {process.env.NEXT_PUBLIC_BASE_TITLE ??
-                            "Kershner Endeavors"}
-                    </Typography>
-                </Box>
-                <Box display="flex" flex="1" justifyContent="center">
+                {renderCompanyTitle()}
+                <Box
+                    display="flex"
+                    flex="1"
+                    justifyContent={isSm ? "flex-start" : "center"}
+                >
                     <NavigationMenu />
                 </Box>
                 <Box>

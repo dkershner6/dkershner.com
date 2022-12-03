@@ -4,7 +4,7 @@ import { Tab, Tabs } from "@mui/material";
 import { useRouter } from "next/router";
 
 enum NavigationTab {
-    ConsultingServices = "Consulting Services",
+    ConsultingServices = "Services",
     Blog = "Blog",
 }
 
@@ -29,7 +29,7 @@ const NavigationMenu = (): ReactElement => {
     }, [router.pathname]);
 
     return (
-        <Tabs value={selectedTab}>
+        <Tabs value={selectedTab} variant="scrollable" scrollButtons="auto">
             <Tab
                 component="a"
                 label={NavigationTab.ConsultingServices}
