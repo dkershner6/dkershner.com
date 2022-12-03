@@ -5,7 +5,6 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import {
     AppBar,
     Box,
-    Hidden,
     IconButton,
     Toolbar,
     Tooltip,
