@@ -47,10 +47,6 @@ const AMPLIFY_SETTINGS: UpdateAppCommandInput = {
 };
 
 const setAmplifySettings = async (): Promise<void> => {
-    if (!process.env.AWS_PROFILE) {
-        throw new Error("AWS_PROFILE environment variable is not set");
-    }
-
     const amplifyClient = new AmplifyClient({ region: AMPLIFY_APP_REGION });
     const updateAppCommand = new UpdateAppCommand(AMPLIFY_SETTINGS);
     const response = await amplifyClient.send(updateAppCommand);
