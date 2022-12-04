@@ -7,6 +7,33 @@ import {
     UpdateAppCommandInput,
     CustomRule,
 } from "@aws-sdk/client-amplify";
+import Chalk from "chalk";
+
+// #region ############### CONFIGURATION ###############
+/** Overwrite this to the actual appId to skip lookup (troubleshooting) */
+const AMPLIFY_APP_ID = undefined;
+
+const AMPLIFY_APP_REGION = "us-west-2";
+
+/**
+ * Allow you to redirect from one domain or path to another.
+ */
+const AMPLIFY_REDIRECTS: CustomRule[] = [
+    {
+        source: "https://www.dkershner.com",
+        target: "https://dkershner.com",
+        status: "302",
+    },
+];
+
+/**
+ * Make sure any settings included here are complete, or else it will overwrite.
+ * Not including a setting will not remove it, however.
+ */
+const AMPLIFY_SETTINGS: Omit<UpdateAppCommandInput, "appId"> = {
+    customRules: AMPLIFY_REDIRECTS,
+};
+// #endregion ############### CONFIGURATION ###############
 
 const getAmplifyAppId = (): string => {
     const teamProviderInfoBuffer = fs.readFileSync(
@@ -30,28 +57,23 @@ const getAmplifyAppId = (): string => {
     return teamProviderInfoEntries?.[0]?.[1]?.awscloudformation?.AmplifyAppId;
 };
 
-const AMPLIFY_APP_ID = getAmplifyAppId();
-const AMPLIFY_APP_REGION = "us-west-2";
-
-const AMPLIFY_REDIRECTS: CustomRule[] = [
-    {
-        source: "https://www.dkershner.com",
-        target: "https://dkershner.com",
-        status: "302",
-    },
-];
-
-const AMPLIFY_SETTINGS: UpdateAppCommandInput = {
-    appId: AMPLIFY_APP_ID,
-    customRules: AMPLIFY_REDIRECTS,
-};
-
 const setAmplifySettings = async (): Promise<void> => {
     const amplifyClient = new AmplifyClient({ region: AMPLIFY_APP_REGION });
-    const updateAppCommand = new UpdateAppCommand(AMPLIFY_SETTINGS);
+    const updateInput: UpdateAppCommandInput = {
+        appId: AMPLIFY_APP_ID ?? getAmplifyAppId(),
+        ...AMPLIFY_SETTINGS,
+    };
+    const updateAppCommand = new UpdateAppCommand(updateInput);
     const response = await amplifyClient.send(updateAppCommand);
 
-    console.debug("Amplify Settings Have Been Set", response.app);
+    console.debug(
+        Chalk.bgGreenBright("Amplify Settings Have Been Set"),
+        Object.fromEntries(
+            Object.entries(response?.app ?? {}).filter(([key]) =>
+                Object.keys(updateInput).includes(key)
+            )
+        )
+    );
 };
 
 setAmplifySettings();
