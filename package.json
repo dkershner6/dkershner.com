@@ -1,7 +1,7 @@
 {
   "name": "DKershner.com",
   "description": "Derek Kershner's website.",
-  "version": "1.16.1",
+  "version": "1.17.0",
   "author": "Derek Kershner",
   "private": true,
   "license": "MIT",
@@ -22,7 +22,8 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint ./src --ext .tsx,.ts,.js,.jsx --max-warnings 0",
     "lint:fix": "eslint ./src --ext .tsx,.ts,.js,.jsx --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "set-amplify-settings": "ts-node --project tsconfig.jest.json ./setAmplifySettings.ts"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@aws-cdk/aws-amplify-alpha": "^2.53.0-alpha.0",
+    "@aws-sdk/client-amplify": "^3.223.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.2.3",
