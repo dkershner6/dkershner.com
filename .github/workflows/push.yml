@@ -1,0 +1,30 @@
+name: Push
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  pr-checks:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: NPM
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Configure AWS credentials
+        id: aws-credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+
+      - run: npm ci
+      - run: npm run set-amplify-settings
