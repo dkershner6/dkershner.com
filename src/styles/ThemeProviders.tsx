@@ -1,20 +1,18 @@
 import React, {
     ReactElement,
     ReactNode,
-    useContext,
-    useEffect,
     useLayoutEffect,
     useMemo,
     useState,
 } from "react";
 
+import { useColorMode } from "@docusaurus/theme-common";
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@mui/material";
 
-import { useColorMode } from "@docusaurus/theme-common";
 import DarkTheme from "./DarkTheme";
 import LightTheme from "./LightTheme";
-import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
 
 const createEmotionCache = () => {
     return createCache({ key: "css" });
