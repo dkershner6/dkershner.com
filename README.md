@@ -1,14 +1,41 @@
-# DKershner.com
+# Website
 
-## Site Architecture
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Front-end
+### Installation
 
--   Framework: Next.js using incremental site regeneration.
--   Language: TypeScript
--   Host: AWS
+```
+$ yarn
+```
 
-### Infrastructure
+### Local Development
 
--   Stack: Defined as code using AWS CDK.
--   CI/CD: Deployed using GitHub actions.
+```
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

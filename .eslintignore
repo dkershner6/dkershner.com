@@ -7,6 +7,3 @@ node_modules
 src/styles/css
 dist
 build
-cdk.out/**
-.build
-innerWebapp

@@ -21,7 +21,6 @@ jobs:
       - run: npm ci
       - run: npm run type-check
       - run: npm run lint
-      - run: npm test
 
       - name: Check if version has been updated
         id: versioncheck

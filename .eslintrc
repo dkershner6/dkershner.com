@@ -1,89 +1,71 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "@typescript-eslint",
-        "react",
-        "react-hooks",
-        "prettier",
-        "jest",
-        "jsx-a11y",
-        "sonarjs",
-        "import"
-    ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-        "plugin:jest/recommended",
-        "plugin:sonarjs/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:import/typescript",
-        "prettier"
-    ],
-    "env": {
-        "es6": true,
-        "browser": true,
-        "jest": true
-    },
-    "settings": {
-        "react": {
-            "pragma": "React",
-            "version": "detect"
-        }
-    },
-    "rules": {
-        "no-undefined": "off", // TS will cover
-        "react/prop-types": 0, // Disabled to prefer use of Typescript<Props>,
-        "no-console": ["warn", { "allow": ["debug", "warn", "error"] }],
-        "import/no-unresolved": "off", // Handled by TS and it gets confused on @types packages.
-        "import/namespace": "off",
-        // Handles alpha and a separate section for React. Use even outside of React for copy pasta ease.
-        "import/order": [
-            "error",
-            {
-                "groups": ["builtin", "external", "parent", "sibling", "index"],
-                "newlines-between": "always",
-                "pathGroups": [
-                    {
-                        "pattern": "react",
-                        "group": "external",
-                        "position": "before"
-                    }
-                ],
-                "pathGroupsExcludedImportTypes": ["react"],
-                "alphabetize": {
-                    "order": "asc",
-                    "caseInsensitive": true
-                }
-            }
-        ],
-        "import/no-mutable-exports": "error",
-        // This choice was made because we use Next.JS, which is very opinionated in favor of this, so it cannot be avoided.
-        "import/prefer-default-export": "warn",
-        "import/no-anonymous-default-export": "error",
-        "sonarjs/no-redundant-jump": "off",
-        "sonarjs/no-small-switch": "warn",
-        "@typescript-eslint/explicit-function-return-type": [
-            "warn",
-            {
-                "allowExpressions": true,
-                "allowTypedFunctionExpressions": true,
-                "allowHigherOrderFunctions": true,
-                "allowDirectConstAssertionInArrowFunctions": true,
-                "allowConciseArrowFunctionExpressionsStartingWithVoid": true
-            }
-        ],
-        "@typescript-eslint/no-unused-vars": [
-            "warn",
-            {
-                "ignoreRestSiblings": true
-            }
-        ]
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "prettier",
+    "jest",
+    "jsx-a11y",
+    "sonarjs",
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:jest/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
     }
+  },
+  "rules": {
+    "react/prop-types": 0, // Disabled to prefer use of Typescript<Props>,
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    }
+  ]
 }
