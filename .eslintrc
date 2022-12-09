@@ -38,12 +38,8 @@
         }
     },
     "rules": {
-        "no-undefined": "off", // TS will cover
         "react/prop-types": 0, // Disabled to prefer use of Typescript<Props>,
-        "no-console": ["warn", { "allow": ["debug", "warn", "error"] }],
-        "import/no-unresolved": "off", // Handled by TS and it gets confused on @types packages.
-        "import/namespace": "off",
-        // Handles alpha and a separate section for React. Use even outside of React for copy pasta ease.
+        "import/no-unresolved": 0, // Disabled to prefer TypeScript
         "import/order": [
             "error",
             {
@@ -62,28 +58,15 @@
                     "caseInsensitive": true
                 }
             }
-        ],
-        "import/no-mutable-exports": "error",
-        // This choice was made because we use Next.JS, which is very opinionated in favor of this, so it cannot be avoided.
-        "import/prefer-default-export": "warn",
-        "import/no-anonymous-default-export": "error",
-        "sonarjs/no-redundant-jump": "off",
-        "sonarjs/no-small-switch": "warn",
-        "@typescript-eslint/explicit-function-return-type": [
-            "warn",
-            {
-                "allowExpressions": true,
-                "allowTypedFunctionExpressions": true,
-                "allowHigherOrderFunctions": true,
-                "allowDirectConstAssertionInArrowFunctions": true,
-                "allowConciseArrowFunctionExpressionsStartingWithVoid": true
-            }
-        ],
-        "@typescript-eslint/no-unused-vars": [
-            "warn",
-            {
-                "ignoreRestSiblings": true
-            }
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "rules": {
+                "@typescript-eslint/no-var-requires": "off",
+                "@typescript-eslint/explicit-module-boundary-types": "off"
+            }
+        }
+    ]
 }

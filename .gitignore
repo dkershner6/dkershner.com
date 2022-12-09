@@ -1,55 +1,20 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-public/sitemap*.xml
-public/sitemap.xml
-
-cdk.out
-.next
-
-# dependencies
+# Dependencies
 /node_modules
 
-# testing
-/coverage
-
-# production
+# Production
 /build
 
-# misc
+# Generated files
+.docusaurus
+.cache-loader
+
+# Misc
 .DS_Store
-.npmrc
-
-# sst build output
-.build
-.sst
-
-# environments
-.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-*.tsbuildinfo
-
-#amplify-do-not-edit-begin
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/logs
-amplify/mock-data
-amplify/mock-api-resources
-amplify/backend/amplify-meta.json
-amplify/backend/.temp
-build/
-dist/
-node_modules/
-aws-exports.js
-awsconfiguration.json
-amplifyconfiguration.json
-amplifyconfiguration.dart
-amplify-build-config.json
-amplify-gradle-config.json
-amplifytools.xcconfig
-.secret-*
-**.sample
-#amplify-do-not-edit-end
