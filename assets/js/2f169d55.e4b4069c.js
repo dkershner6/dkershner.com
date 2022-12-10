@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdkershner_com=self.webpackChunkdkershner_com||[]).push([[226],{6637:e=>{e.exports=JSON.parse('{"label":"azure","permalink":"/blog/tags/azure","allTagsPath":"/blog/tags","count":1}')}}]);

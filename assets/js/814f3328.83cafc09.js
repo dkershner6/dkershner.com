@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdkershner_com=self.webpackChunkdkershner_com||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Azure Functions Tips & Tricks","permalink":"/blog/azure-functions-findings"}]}')}}]);

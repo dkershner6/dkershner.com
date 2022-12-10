@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Kershner Endeavors Blog</title>
+        <link>https://dkershner.com/blog</link>
+        <description>Kershner Endeavors Blog</description>
+        <lastBuildDate>Sat, 03 Dec 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Azure Functions Tips & Tricks]]></title>
+            <link>https://dkershner.com/blog/azure-functions-findings</link>
+            <guid>/azure-functions-findings</guid>
+            <pubDate>Sat, 03 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Tips while using Azure Functions (Learned the hard way).]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tips-while-using-azure-functions-learned-the-hard-way">Tips while using Azure Functions (Learned the hard way)<a class="hash-link" href="#tips-while-using-azure-functions-learned-the-hard-way" title="Direct link to heading">​</a></h2><ul><li>Always set WEBSITE_RUN_FROM_PACKAGE to 1 (in Application Settings / Environment Variables). Without this, the function app constantly fails and takes forever to deploy (~30min vs ~3min).<ul><li><a href="https://learn.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package" target="_blank" rel="noopener noreferrer">Azure recommends this</a>, but it isn't obvious unless you happen upon those docs.</li></ul></li><li>When using Node, all functions must be in the root in order to run locally. This means no monorepos or any form of organization when using Functions.</li><li>In order to run locally when using queue-triggered functions, you must have a local storage emulator running. The simplest method is to install azurite globally <code>npm i -g azurite</code>, then just simply run <code>azurite</code>.<ul><li>You can also install the VSCode function by the same name, which is also pretty simple to use.</li></ul></li><li>If you get odd eslint or prettier behavior when using the Azure extensions to generate code, try changing the line endings from CRLF to LF.</li></ul>]]></content:encoded>
+            <category>azure</category>
+            <category>cloud-architecture</category>
+            <category>serverless</category>
+        </item>
+    </channel>
+</rss>
