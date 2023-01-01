@@ -41,7 +41,7 @@ This indicates what are of Software expertise the resource is primarily focused 
 
 If a given piece is very long or short, it will be tagged as such (average is untagged).
 
--   [long](/resources/tags/long)
+-   long
 -   [short](/resources/tags/short)
 
 ### Non-Technical

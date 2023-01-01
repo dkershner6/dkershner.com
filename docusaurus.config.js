@@ -37,6 +37,8 @@ const config = {
             ({
                 docs: {
                     routeBasePath: BASE_RESOURCES_PATH.slice(1),
+                    showLastUpdateAuthor: true,
+                    showLastUpdateTime: true,
                     sidebarPath: require.resolve("./sidebars.js"),
                 },
                 gtag: {
@@ -50,6 +52,10 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            colorMode: {
+                defaultMode: "dark",
+                respectPrefersColorScheme: true,
+            },
             navbar: {
                 title: SITE_TITLE,
                 logo: {
@@ -87,12 +93,36 @@ const config = {
                 style: "dark",
                 links: [
                     {
-                        title: "More",
+                        title: "Services",
                         items: [
                             {
-                                label: "Software Resources & Tips",
-                                to: BASE_RESOURCES_PATH,
+                                label: "Services",
+                                to: "/",
+                                activeBaseRegex: "/$",
                             },
+                        ],
+                    },
+                    {
+                        title: "Software Resources & Tips",
+                        items: [
+                            {
+                                to: BASE_RESOURCES_PATH,
+                                label: "Overview",
+                                activeBaseRegex: `${BASE_RESOURCES_PATH}/?$`,
+                            },
+                            {
+                                to: `${BASE_RESOURCES_PATH}/learning`,
+                                label: "Software Learning Resources",
+                            },
+                            {
+                                to: `${BASE_RESOURCES_PATH}/tags`,
+                                label: "All Tags",
+                            },
+                        ],
+                    },
+                    {
+                        title: "More",
+                        items: [
                             {
                                 label: "GitHub",
                                 href: "https://github.com/dkershner6",
