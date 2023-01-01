@@ -12,7 +12,7 @@ This one is not cut and dry, just to be clear, but I believe CosmosDB to have ch
 
 ## CosmosDB Advantages
 
--   Indexing is implemented in an opt-out fashion, allowing you significantly more flexibility up front, and then allowing you to optimize for performance later. This is much more intuitive than the opposite (as is so in DynamoDB). **It is hard to overstate how powerful this single advantage is, but DynamoDB has [entire books](/resources/books/dynamodb-book) written about how to best not screw this part up that simply aren't needed with CosmosDB.**
+-   Indexing is implemented in an opt-out fashion, allowing you significantly more flexibility up front, and then allowing you to optimize for performance later. This is much more intuitive than the opposite (as is so in DynamoDB). **It is hard to overstate how powerful this single advantage is, but DynamoDB has [entire books](/resources/learning/books/dynamodb-book) written about how to best not screw this part up that simply aren't needed with CosmosDB.**
 -   Indexing is possible on array values.
 -   Massive up front data modeling savings because only one partition key needs to ever be chosen.
 
