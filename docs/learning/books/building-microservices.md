@@ -3,10 +3,13 @@ title: Building Microservices
 description: This book is great for those coming from Monolithic architectures (pretty much everyone, originally) and baby-stepping through the reasons why you may want to move services to a more micro level. It is definitely written from a pro-microservices standpoint, but refrains from being preachy.
 image: /img/books/building-microservices.png
 tags:
+    - learning
     - good-first-read
+    - fundamentals
     - books
     - Sam Newman
     - architecture
+    - score-4
 ---
 
 # Building Microservices

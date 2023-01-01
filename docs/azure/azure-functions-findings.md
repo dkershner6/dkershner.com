@@ -1,12 +1,14 @@
 ---
-authors: [dkershner]
-date: 2022-12-03
 description: Tips while using Azure Functions (Learned the hard way).
-tags: ["azure", "cloud-architecture", "serverless"]
 title: Azure Functions Tips & Tricks
+tags:
+    - azure
+    - cloud
+    - serverless
+    - functions
 ---
 
-## Tips while using Azure Functions (Learned the hard way)
+# Azure Functions Tips & Tricks (Learned the hard way)
 
 -   Always set WEBSITE_RUN_FROM_PACKAGE to 1 (in Application Settings / Environment Variables). Without this, the function app constantly fails and takes forever to deploy (~30min vs ~3min).
     -   [Azure recommends this](https://learn.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package), but it isn't obvious unless you happen upon those docs.

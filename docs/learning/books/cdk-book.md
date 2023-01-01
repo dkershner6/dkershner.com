@@ -3,6 +3,7 @@ title: The CDK Book
 description: The CDK is a massive timesaver over raw Cloudformation, but even with helpful constructs in place, it takes some getting used to. Reading this book, while taking a few hours, will likely save you more than a few days over the course of time.
 image: /img/books/cdk-book.png
 tags:
+    - learning
     - fundamentals
     - books
     - Matthew Bonig, Thorsten Höger, Sathyajith Bhat, Matt Coulter
@@ -11,6 +12,7 @@ tags:
     - infrastructure
     - infrastructure-as-code
     - short
+    - score-3
 ---
 
 # The CDK Book
