@@ -4,9 +4,12 @@
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 
+const SITE_TITLE = "Kershner Endeavors";
+const BASE_RESOURCES_PATH = "/resources";
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "Kershner Endeavors",
+    title: SITE_TITLE,
     tagline: "Software Consulting",
     url: "https://dkershner.com",
     baseUrl: "/",
@@ -33,7 +36,7 @@ const config = {
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
-                    routeBasePath: "/resources",
+                    routeBasePath: BASE_RESOURCES_PATH,
                     sidebarPath: require.resolve("./sidebars.js"),
                 },
             }),
@@ -44,15 +47,15 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: "Kershner Endeavors",
+                title: SITE_TITLE,
                 logo: {
-                    alt: "Kershner Endeavors",
+                    alt: SITE_TITLE,
                     src: "img/logo.png",
                 },
                 items: [
                     { to: "/", label: "Services", position: "left" },
                     {
-                        to: "/resources",
+                        to: BASE_RESOURCES_PATH,
                         label: "Software Resources & Tips",
                         position: "left",
                     },
@@ -66,7 +69,7 @@ const config = {
                         items: [
                             {
                                 label: "Software Resources & Tips",
-                                to: "/resources",
+                                to: BASE_RESOURCES_PATH,
                             },
                             {
                                 label: "GitHub",
@@ -93,4 +96,5 @@ const config = {
     ],
 };
 
+// eslint-disable-next-line no-undef
 module.exports = config;

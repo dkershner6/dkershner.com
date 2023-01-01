@@ -3,11 +3,13 @@ title: Clean Coder
 description: This book is a window to a future you, wisened by years or decades of experience. Any time you can find that window, open it.
 image: /img/books/clean-coder.jpeg
 tags:
+    - learning
     - fundamentals
     - books
     - Robert C. Martin
     - leadership
-    - software-management
+    - score-5
+    - management
 ---
 
 # Clean Coder

@@ -1,11 +1,13 @@
 ---
 title: Agile Estimating & Planning
 tags:
+    - learning
     - advanced
     - books
     - Mike Cohn
     - project-management
     - software-management
+    - score-4
 ---
 
 # Agile Estimating & Planning
