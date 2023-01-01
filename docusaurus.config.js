@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer/themes/github");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -32,9 +32,9 @@ const config = {
             "classic",
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
-                docs: false,
-                blog: {
-                    showReadingTime: true,
+                docs: {
+                    routeBasePath: "/resources",
+                    sidebarPath: require.resolve("./sidebars.js"),
                 },
             }),
         ],
@@ -51,7 +51,11 @@ const config = {
                 },
                 items: [
                     { to: "/", label: "Services", position: "left" },
-                    { to: "/blog", label: "Blog", position: "left" },
+                    {
+                        to: "/resources",
+                        label: "Software Resources & Tips",
+                        position: "left",
+                    },
                 ],
             },
             footer: {
@@ -61,8 +65,8 @@ const config = {
                         title: "More",
                         items: [
                             {
-                                label: "Blog",
-                                to: "/blog",
+                                label: "Software Resources & Tips",
+                                to: "/resources",
                             },
                             {
                                 label: "GitHub",
@@ -82,8 +86,8 @@ const config = {
         [
             "@cmfcmf/docusaurus-search-local",
             {
-                indexBlog: true,
-                indexDocs: false,
+                indexBlog: false,
+                indexDocs: true,
             },
         ],
     ],
