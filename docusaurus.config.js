@@ -39,6 +39,10 @@ const config = {
                     routeBasePath: BASE_RESOURCES_PATH.slice(1),
                     sidebarPath: require.resolve("./sidebars.js"),
                 },
+                gtag: {
+                    trackingID: "G-FP2E2SXJMK",
+                    anonymizeIP: true,
+                },
             }),
         ],
     ],
@@ -53,11 +57,29 @@ const config = {
                     src: "img/logo.png",
                 },
                 items: [
-                    { to: "/", label: "Services", position: "left" },
                     {
-                        to: BASE_RESOURCES_PATH,
+                        label: "Services",
+                        to: "/",
+                        activeBaseRegex: "/$",
+                    },
+                    {
                         label: "Software Resources & Tips",
                         position: "left",
+                        items: [
+                            {
+                                to: BASE_RESOURCES_PATH,
+                                label: "Overview",
+                                activeBaseRegex: `${BASE_RESOURCES_PATH}/?$`,
+                            },
+                            {
+                                to: `${BASE_RESOURCES_PATH}/learning`,
+                                label: "Software Learning Resources",
+                            },
+                            {
+                                to: `${BASE_RESOURCES_PATH}/tags`,
+                                label: "All Tags",
+                            },
+                        ],
                     },
                 ],
             },
