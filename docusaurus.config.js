@@ -7,6 +7,108 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const SITE_TITLE = "Kershner Endeavors";
 const BASE_RESOURCES_PATH = "/resources";
 
+const RESOURCES_ITEMS = [
+    {
+        to: BASE_RESOURCES_PATH,
+        label: "Overview",
+        activeBaseRegex: `${BASE_RESOURCES_PATH}/?$`,
+    },
+    {
+        to: `${BASE_RESOURCES_PATH}/learning`,
+        label: "Software Learning Resources",
+    },
+    {
+        to: `${BASE_RESOURCES_PATH}/tags`,
+        label: "All Tags",
+    },
+];
+
+const OPEN_SOURCE_GITHUB_ACTIONS_ITEMS = [
+    {
+        to: "https://github.com/marketplace/actions/aws-ssm-parameter-store-getparameters-action",
+        label: "AWS SSM Parameter Store GetParameters Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/get-pull-request",
+        label: "Get Pull Request Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/gitignore-parser",
+        label: "Gitignore Parser Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/jest-coverage-commenter",
+        label: "Jest Coverage Commenter Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/node-npm-workspace-detector-action",
+        label: "Node NPM Workspace Detector Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/post-api-call-action",
+        label: "Post API Call Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/comment-reaction",
+        label: "Issue/Pull Request Comment Reaction Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/switch-case-action",
+        label: "Switch Case Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/use-npm-token",
+        label: "Use NPM Token Action",
+    },
+    {
+        to: "https://github.com/marketplace/actions/vercel-set-environment-variables",
+        label: "Vercel Set Environment Variables Action",
+    },
+];
+
+const NODE_REACT_OPEN_SOURCE_ITEMS = [
+    {
+        to: "https://github.com/dkershner6/amplify-authenticator-react-custom",
+        label: "Amplify Authenticator React Custom",
+    },
+    {
+        to: "https://github.com/dkershner6/fetch-from-script-tag",
+        label: "Fetch From Script Tag",
+    },
+    {
+        to: "https://github.com/dkershner6/react-hooks-firebase-auth",
+        label: "React Hooks Firebase Auth",
+    },
+    {
+        to: "https://github.com/dkershner6/sequential-async-foreach",
+        label: "Sequential Async ForEach",
+    },
+    {
+        to: "https://github.com/dkershner6/shopify-application-proxy-verification",
+        label: "Shopify Application Proxy Verification",
+    },
+    {
+        to: "https://github.com/dkershner6/unstated-next-subscribe",
+        label: "Unstated Next Subscribe",
+    },
+    {
+        to: "https://github.com/dkershner6/use-immer-produce",
+        label: "Use Immer Produce",
+    },
+    {
+        to: "https://github.com/dkershner6/use-map-as-state",
+        label: "Use Map As State",
+    },
+    {
+        to: "https://github.com/dkershner6/use-set-as-state",
+        label: "Use Set As State",
+    },
+    {
+        to: "https://github.com/dkershner6/verify-shopify-webhook",
+        label: "Verify Shopify Webhook",
+    },
+];
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: SITE_TITLE,
@@ -37,7 +139,13 @@ const config = {
             ({
                 docs: {
                     routeBasePath: BASE_RESOURCES_PATH.slice(1),
+                    showLastUpdateAuthor: true,
+                    showLastUpdateTime: true,
                     sidebarPath: require.resolve("./sidebars.js"),
+                },
+                gtag: {
+                    trackingID: "G-FP2E2SXJMK",
+                    anonymizeIP: true,
                 },
             }),
         ],
@@ -46,6 +154,10 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            colorMode: {
+                defaultMode: "dark",
+                respectPrefersColorScheme: true,
+            },
             navbar: {
                 title: SITE_TITLE,
                 logo: {
@@ -53,11 +165,25 @@ const config = {
                     src: "img/logo.png",
                 },
                 items: [
-                    { to: "/", label: "Services", position: "left" },
                     {
-                        to: BASE_RESOURCES_PATH,
+                        label: "Services",
+                        to: "/",
+                        activeBaseRegex: "/$",
+                    },
+                    {
                         label: "Software Resources & Tips",
                         position: "left",
+                        items: RESOURCES_ITEMS,
+                    },
+                    {
+                        label: "Open Source Github Actions",
+                        position: "left",
+                        items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
+                    },
+                    {
+                        label: "Open Source Node/React",
+                        position: "left",
+                        items: NODE_REACT_OPEN_SOURCE_ITEMS,
                     },
                 ],
             },
@@ -65,12 +191,30 @@ const config = {
                 style: "dark",
                 links: [
                     {
-                        title: "More",
+                        title: "Services",
                         items: [
                             {
-                                label: "Software Resources & Tips",
-                                to: BASE_RESOURCES_PATH,
+                                label: "Services",
+                                to: "/",
+                                activeBaseRegex: "/$",
                             },
+                        ],
+                    },
+                    {
+                        title: "Software Resources & Tips",
+                        items: RESOURCES_ITEMS,
+                    },
+                    {
+                        title: "Open Source Github Actions",
+                        items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
+                    },
+                    {
+                        title: "Open Source Node/React",
+                        items: NODE_REACT_OPEN_SOURCE_ITEMS,
+                    },
+                    {
+                        title: "More",
+                        items: [
                             {
                                 label: "GitHub",
                                 href: "https://github.com/dkershner6",
