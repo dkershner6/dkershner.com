@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdkershner_com=self.webpackChunkdkershner_com||[]).push([[674],{210:e=>{e.exports=JSON.parse('{"label":"cloud-architecture","permalink":"/blog/tags/cloud-architecture","allTagsPath":"/blog/tags","count":1}')}}]);

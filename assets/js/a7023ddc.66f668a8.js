@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdkershner_com=self.webpackChunkdkershner_com||[]).push([[713],{3457:e=>{e.exports=JSON.parse('[{"label":"azure","permalink":"/blog/tags/azure","count":1},{"label":"cloud-architecture","permalink":"/blog/tags/cloud-architecture","count":1},{"label":"serverless","permalink":"/blog/tags/serverless","count":1}]')}}]);
