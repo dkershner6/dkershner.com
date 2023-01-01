@@ -52,7 +52,7 @@ const config = {
                 items: [
                     { to: "/", label: "Services", position: "left" },
                     {
-                        to: "/docs",
+                        to: "/resources",
                         label: "Software Resources & Tips",
                         position: "left",
                     },
@@ -66,7 +66,7 @@ const config = {
                         items: [
                             {
                                 label: "Software Resources & Tips",
-                                to: "/docs",
+                                to: "/resources",
                             },
                             {
                                 label: "GitHub",
