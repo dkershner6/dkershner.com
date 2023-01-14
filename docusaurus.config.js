@@ -118,6 +118,15 @@ const config = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.png",
+    headTags: [
+        {
+            tagName: "meta",
+            attributes: {
+                property: "og:image",
+                content: "https://dkershner.com/img/geometric.webp",
+            },
+        },
+    ],
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
