@@ -109,6 +109,19 @@ const NODE_REACT_OPEN_SOURCE_ITEMS = [
     },
 ];
 
+const BASE_RECIPES_PATH = "/recipes";
+
+const RECIPES_ITEMS = [
+    {
+        to: BASE_RECIPES_PATH,
+        label: "Recipes",
+    },
+    {
+        to: `${BASE_RECIPES_PATH}/tags`,
+        label: "Categories / Tags",
+    },
+];
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: SITE_TITLE,
@@ -146,6 +159,14 @@ const config = {
             "classic",
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
+                blog: {
+                    blogTitle: "Derek Kershner's Recipes",
+                    blogDescription: "Derek Kershner's Recipes, generally Keto",
+                    blogSidebarCount: 20,
+                    routeBasePath: "/recipes",
+                    path: "./recipes",
+                    showReadingTime: true,
+                },
                 docs: {
                     routeBasePath: BASE_RESOURCES_PATH.slice(1),
                     showLastUpdateAuthor: true,
@@ -194,6 +215,11 @@ const config = {
                         position: "left",
                         items: NODE_REACT_OPEN_SOURCE_ITEMS,
                     },
+                    {
+                        label: "Recipes (Like, Food)",
+                        position: "left",
+                        items: RECIPES_ITEMS,
+                    },
                 ],
             },
             footer: {
@@ -220,6 +246,10 @@ const config = {
                     {
                         title: "Open Source Node/React",
                         items: NODE_REACT_OPEN_SOURCE_ITEMS,
+                    },
+                    {
+                        title: "Recipes (Like, Food)",
+                        items: RECIPES_ITEMS,
                     },
                     {
                         title: "More",
