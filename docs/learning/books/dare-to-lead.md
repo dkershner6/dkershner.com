@@ -35,6 +35,8 @@ This book is my favorite management book to date.  That being said, I would sugg
 
 Perhaps it is just me, but this book spoke to me in greater fashion than others.  Others had situations that felt familiar, but not exact.  This book felt dead on 100% of the time, which made it all the more powerful.
 
+Brene is a psychology researcher focusing on leadership.  She does a great job going deep into topics, but not getting stuck in minutia as she does so. 
+
 ## Important concepts
 
 - Rumbling with Vulnerability: This section of the book provides skills and reasons to encourage vulnerability by creating safe spaces. It does an extremely good job with the "why" by making it quite simple: Clear is Kind, Unclear is unkind.
