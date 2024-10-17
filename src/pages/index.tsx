@@ -11,6 +11,7 @@ import {
     Grid2 as Grid,
     List,
     ListItem,
+    ListItemButton,
     Paper,
     Typography,
     useTheme,
@@ -23,7 +24,7 @@ import ThemeProviders from "../styles/ThemeProviders";
 const Home = (): ReactElement => {
     const theme = useTheme();
 
-    const SERVICE_CARD_SX = {
+    const HOME_CARD_SX = {
         height: "100%",
     };
 
@@ -36,19 +37,20 @@ const Home = (): ReactElement => {
                             sx={{
                                 bgcolor: alpha(
                                     theme.palette.background.paper,
-                                    0.7
+                                    0.7,
                                 ),
                                 marginY: theme.spacing(12),
                                 padding: theme.spacing(4),
                             }}
                         >
-                            <Typography variant="h1">Skills</Typography>
+                            <Typography variant="h1">Software</Typography>
                             <Typography
                                 component="h2"
                                 variant="body1"
                                 color="textSecondary"
                             >
-                                "Founding Software Leader | Cloud Infrastructure Architect | Full-Stack Engineer | DevOps | AI"
+                                Founding Software Leader | Cloud Infrastructure
+                                Architect | Full-Stack Engineer | DevOps | AI
                             </Typography>
                         </Paper>
                     </Grid>
@@ -62,10 +64,8 @@ const Home = (): ReactElement => {
                     justifyContent="center"
                 >
                     <Grid size={{ xs: 12, sm: 6 }}>
-                        <Card sx={SERVICE_CARD_SX}>
-                            <CardHeader
-                                title="Software Leadership"
-                            />
+                        <Card sx={HOME_CARD_SX}>
+                            <CardHeader title="Software Leadership" />
                             <CardContent>
                                 <List>
                                     <ListItem>
@@ -74,107 +74,97 @@ const Home = (): ReactElement => {
                                     <ListItem>
                                         6+ Years Senior Leadership Experience.
                                     </ListItem>
-                                </List>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                        <Card sx={SERVICE_CARD_SX}>
-                            <CardHeader
-                                title="Cloud Architecture & Infrastructure"
-                                subheader="AWS and Azure"
-                            />
-                            <CardContent>
-                                <List>
                                     <ListItem>
-                                        Maximize benefits of cloud computing.
-                                    </ListItem>
-                                    <ListItem>Minimize costs.</ListItem>
-                                    <ListItem>
-                                        Reduce operational and development
-                                        friction.
+                                        Met with potential investors to explain
+                                        technical vision.
                                     </ListItem>
                                     <ListItem>
-                                        Implement modern DevOps practices.
+                                        Built cultural principles and coding
+                                        guidelines.
+                                    </ListItem>
+                                    <ListItem>
+                                        Recruited, hired, and trained software
+                                        engineering team.
+                                    </ListItem>
+                                    <ListItem>
+                                        Managed multi-domain, multi-year
+                                        software development process to
+                                        successful minimum viable product launch
+                                        with early delivery.
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                        <Card sx={SERVICE_CARD_SX}>
-                            <CardHeader
-                                title="Software Engineering"
-                                subheader="Limitless potential"
-                            />
+                        <Card sx={HOME_CARD_SX}>
+                            <CardHeader title="Cloud/Infrastructure Solutions Architecture" />
                             <CardContent>
                                 <List>
                                     <ListItem>
-                                        Build new functionality.
+                                        Extensive experience with AWS and Azure.
                                     </ListItem>
                                     <ListItem>
-                                        Improve existing functionality.
+                                        Have Planned, Constructed, and
+                                        Maintained massive, multi-faceted
+                                        architectures across several capability
+                                        requests.
                                     </ListItem>
                                     <ListItem>
-                                        Maintain high quality for the lowest
-                                        possible future maintenance.
+                                        Have proven performance without
+                                        degradation at massive scale.
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                        <Card sx={SERVICE_CARD_SX}>
-                            <CardHeader
-                                title="Reporting & Data"
-                                subheader="Nimble, accurate decision making"
-                            />
+                        <Card sx={HOME_CARD_SX}>
+                            <CardHeader title="DevOps / Platform / Site Reliability Engineering" />
                             <CardContent>
                                 <List>
                                     <ListItem>
-                                        Automate extraction and transformation.
+                                        Extensive experience with Infrastructure
+                                        as Code and have contributed constructs
+                                        and libraries through Open Source (see
+                                        NavBar).
                                     </ListItem>
-                                    <ListItem>Maximize value.</ListItem>
-                                    <ListItem>Visualize patterns.</ListItem>
-                                    <ListItem>Act.</ListItem>
+                                    <ListItemButton href="https://projen.io/">
+                                        Extensive experience with automating and
+                                        standardizing repository creation.
+                                        Extensive contribution to projen, the
+                                        current leader in the space.
+                                    </ListItemButton>
+                                    <ListItem>
+                                        Extensive experience with CI/CD and
+                                        automation. Many open source GitHub
+                                        Actions created or contributed to (see
+                                        NavBar).
+                                    </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                        <Card sx={SERVICE_CARD_SX}>
-                            <CardHeader
-                                title="Staff Training & Recruitment"
-                                subheader="Expand Capabilities"
-                            />
+                        <Card sx={HOME_CARD_SX}>
+                            <CardHeader title="Full-Stack Software Engineering" />
                             <CardContent>
                                 <List>
-                                    <ListItem>Aid the search.</ListItem>
                                     <ListItem>
-                                        Assess incoming talent for impact.
+                                        Extensive experience in various Object
+                                        Oriented Programming languages in both
+                                        the front and backends.
                                     </ListItem>
-                                    <ListItem>Ensure cultural fit.</ListItem>
                                     <ListItem>
-                                        Maximize Engineer learning.
+                                        Highly effective mentor and advocate.
+                                    </ListItem>
+                                    <ListItem>
+                                        Many open-source contributions and
+                                        creations (see NavBar).
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
-                    </Grid>
-                </Grid>
-                <Grid
-                    container
-                    justifyContent="center"
-                    spacing={4}
-                    marginBottom={theme.spacing(6)}
-                >
-                    <Grid>
-                        <Button
-                            variant="contained"
-                            href={`mailto:consulting@dkershner.com`}
-                        >
-                            Contact Us
-                        </Button>
                     </Grid>
                 </Grid>
             </Container>

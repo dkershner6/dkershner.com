@@ -10,7 +10,7 @@ const DarkTheme = responsiveFontSizes(
             secondary: { main: "#EA0656" },
             info: { main: "#3f51b5" },
         },
-    })
+    }),
 );
 
 export default DarkTheme;

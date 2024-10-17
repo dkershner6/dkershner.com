@@ -34,7 +34,7 @@ const ThemeProviders = ({
 
     const theme = useMemo(
         () => (paletteMode === "dark" ? DarkTheme : LightTheme),
-        [paletteMode]
+        [paletteMode],
     );
 
     return (
