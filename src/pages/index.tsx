@@ -65,7 +65,10 @@ const Home = (): ReactElement => {
                 >
                     <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={HOME_CARD_SX}>
-                            <CardHeader title="Software Leadership" />
+                            <CardHeader
+                                title="Software Leadership"
+                                subheader="Learning & Growth"
+                            />
                             <CardContent>
                                 <List>
                                     <ListItem>
@@ -98,7 +101,10 @@ const Home = (): ReactElement => {
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={HOME_CARD_SX}>
-                            <CardHeader title="Cloud/Infrastructure Solutions Architecture" />
+                            <CardHeader
+                                title="Cloud/Infrastructure Solutions Architecture"
+                                subheader="Building Blocks for Success"
+                            />
                             <CardContent>
                                 <List>
                                     <ListItem>
@@ -120,7 +126,10 @@ const Home = (): ReactElement => {
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={HOME_CARD_SX}>
-                            <CardHeader title="DevOps / Platform / Site Reliability Engineering" />
+                            <CardHeader
+                                title="DevOps / Platform / Site Reliability Engineering"
+                                subheader="Strong Foundation"
+                            />
                             <CardContent>
                                 <List>
                                     <ListItem>
@@ -147,7 +156,10 @@ const Home = (): ReactElement => {
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={HOME_CARD_SX}>
-                            <CardHeader title="Full-Stack Software Engineering" />
+                            <CardHeader
+                                title="Full-Stack Software Engineering"
+                                subheader="Limitless Possibilities"
+                            />
                             <CardContent>
                                 <List>
                                     <ListItem>
