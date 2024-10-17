@@ -207,7 +207,7 @@ const config = {
 
     themeConfig: {
         colorMode: {
-            defaultMode: "dark",
+            defaultMode: "light",
             respectPrefersColorScheme: true,
         },
         image: "img/pot.png",
