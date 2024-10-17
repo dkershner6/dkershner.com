@@ -1,10 +1,13 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+import type * as Preset from "@docusaurus/preset-classic";
+import type { Config } from "@docusaurus/types";
+import { themes } from "prism-react-renderer";
 
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = themes.dracula;
+const lightCodeTheme = themes.github;
 
-const SITE_TITLE = "Kershner Endeavors";
+const SITE_TITLE = "Derek Kershner";
+const SITE_TAGLINE =
+    "Founding Software Leader | Cloud Infrastructure Architect | Full-Stack Engineer | DevOps | AI";
 const BASE_RESOURCES_PATH = "/resources";
 
 const RESOURCES_ITEMS = [
@@ -20,6 +23,25 @@ const RESOURCES_ITEMS = [
     {
         to: `${BASE_RESOURCES_PATH}/tags`,
         label: "All Tags",
+    },
+];
+
+const OPEN_SOURCE_CDK_CONSTRUCTS_ITEMS = [
+    {
+        to: "https://constructs.dev/packages/cdk-versioned-stack-manager",
+        label: "CDK Versioned Stack Manager",
+    },
+    {
+        to: "https://constructs.dev/packages/cdk-nextjs-export-s3-dynamic-routing",
+        label: "CDK NextJS Export S3 Dynamic Routing",
+    },
+    {
+        to: "https://constructs.dev/packages/cdk-cloudfront-associate-alias",
+        label: "CDK CloudFront Associate Alias",
+    },
+    {
+        to: "https://constructs.dev/packages/cdk-ssm-secure-iam-access-key",
+        label: "CDK SSM Secure IAM Access Key",
     },
 ];
 
@@ -109,10 +131,9 @@ const NODE_REACT_OPEN_SOURCE_ITEMS = [
     },
 ];
 
-/** @type {import('@docusaurus/types').Config} */
 const config = {
     title: SITE_TITLE,
-    tagline: "Software Consulting",
+    tagline: SITE_TAGLINE,
     url: "https://dkershner.com",
     baseUrl: "/",
     onBrokenLinks: "throw",
@@ -144,8 +165,7 @@ const config = {
     presets: [
         [
             "classic",
-            /** @type {import('@docusaurus/preset-classic').Options} */
-            ({
+            {
                 docs: {
                     routeBasePath: BASE_RESOURCES_PATH.slice(1),
                     showLastUpdateAuthor: true,
@@ -156,88 +176,90 @@ const config = {
                     trackingID: "G-FP2E2SXJMK",
                     anonymizeIP: true,
                 },
-            }),
+            } satisfies Preset.Options,
         ],
     ],
 
-    themeConfig:
-        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-        ({
-            colorMode: {
-                defaultMode: "dark",
-                respectPrefersColorScheme: true,
+    themeConfig: {
+        colorMode: {
+            defaultMode: "dark",
+            respectPrefersColorScheme: true,
+        },
+        navbar: {
+            title: SITE_TITLE,
+            logo: {
+                alt: SITE_TITLE,
+                src: "img/logo.png",
             },
-            navbar: {
-                title: SITE_TITLE,
-                logo: {
-                    alt: SITE_TITLE,
-                    src: "img/logo.png",
+            items: [
+                {
+                    label: "Software Resources & Tips",
+                    position: "left",
+                    items: RESOURCES_ITEMS,
                 },
-                items: [
-                    {
-                        label: "Services",
-                        to: "/",
-                        activeBaseRegex: "/$",
-                    },
-                    {
-                        label: "Software Resources & Tips",
-                        position: "left",
-                        items: RESOURCES_ITEMS,
-                    },
-                    {
-                        label: "Open Source Github Actions",
-                        position: "left",
-                        items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
-                    },
-                    {
-                        label: "Open Source Node/React",
-                        position: "left",
-                        items: NODE_REACT_OPEN_SOURCE_ITEMS,
-                    },
-                ],
-            },
-            footer: {
-                style: "dark",
-                links: [
-                    {
-                        title: "Services",
-                        items: [
-                            {
-                                label: "Services",
-                                to: "/",
-                                activeBaseRegex: "/$",
-                            },
-                        ],
-                    },
-                    {
-                        title: "Software Resources & Tips",
-                        items: RESOURCES_ITEMS,
-                    },
-                    {
-                        title: "Open Source Github Actions",
-                        items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
-                    },
-                    {
-                        title: "Open Source Node/React",
-                        items: NODE_REACT_OPEN_SOURCE_ITEMS,
-                    },
-                    {
-                        title: "More",
-                        items: [
-                            {
-                                label: "GitHub",
-                                href: "https://github.com/dkershner6",
-                            },
-                        ],
-                    },
-                ],
-                copyright: `Copyright © ${new Date().getFullYear()} Kershner Endeavors LLC. All rights reserved.`,
-            },
-            prism: {
-                theme: lightCodeTheme,
-                darkTheme: darkCodeTheme,
-            },
-        }),
+                {
+                    label: "CDK Constructs OSS",
+                    position: "left",
+                    items: OPEN_SOURCE_CDK_CONSTRUCTS_ITEMS,
+                },
+                {
+                    label: "Github Actions OSS",
+                    position: "left",
+                    items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
+                },
+                {
+                    label: "Node/React OSS",
+                    position: "left",
+                    items: NODE_REACT_OPEN_SOURCE_ITEMS,
+                },
+            ],
+        },
+        footer: {
+            style: "dark",
+            links: [
+                {
+                    title: "Home",
+                    items: [
+                        {
+                            label: "Home",
+                            to: "/",
+                            activeBaseRegex: "/$",
+                        },
+                    ],
+                },
+                {
+                    title: "Software Resources & Tips",
+                    items: RESOURCES_ITEMS,
+                },
+                {
+                    title: "CDK Constructs OSS",
+                    items: OPEN_SOURCE_CDK_CONSTRUCTS_ITEMS,
+                },
+                {
+                    title: "Github Actions OSS",
+                    items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
+                },
+                {
+                    title: "Node/React OSS",
+                    items: NODE_REACT_OPEN_SOURCE_ITEMS,
+                },
+                {
+                    title: "More",
+                    items: [
+                        {
+                            label: "GitHub",
+                            href: "https://github.com/dkershner6",
+                        },
+                    ],
+                },
+            ],
+            copyright: `Copyright © ${new Date().getFullYear()} Kershner Endeavors LLC. All rights reserved.`,
+        },
+        prism: {
+            theme: lightCodeTheme,
+            darkTheme: darkCodeTheme,
+        },
+    } satisfies Preset.ThemeConfig,
     plugins: [
         [
             "@cmfcmf/docusaurus-search-local",
@@ -247,7 +269,6 @@ const config = {
             },
         ],
     ],
-};
+} satisfies Config;
 
-// eslint-disable-next-line no-undef
-module.exports = config;
+export default config;

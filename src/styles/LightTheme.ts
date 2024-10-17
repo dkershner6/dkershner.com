@@ -13,7 +13,7 @@ const LightTheme = responsiveFontSizes(
                 default: "#eee",
             },
         },
-    })
+    }),
 );
 
 export default LightTheme;

@@ -3,14 +3,14 @@ import React, { ReactElement } from "react";
 import {
     alpha,
     Box,
-    Button,
     Card,
     CardContent,
     CardHeader,
     Container,
-    Grid,
+    Grid2 as Grid,
     List,
     ListItem,
+    ListItemButton,
     Paper,
     Typography,
     useTheme,
@@ -23,7 +23,7 @@ import ThemeProviders from "../styles/ThemeProviders";
 const Home = (): ReactElement => {
     const theme = useTheme();
 
-    const SERVICE_CARD_SX = {
+    const HOME_CARD_SX = {
         height: "100%",
     };
 
@@ -31,24 +31,25 @@ const Home = (): ReactElement => {
         <Box>
             <Parallax strength={300} bgImage="/img/geometric.webp">
                 <Grid container justifyContent="flex-end">
-                    <Grid item textAlign="right">
+                    <Grid textAlign="right">
                         <Paper
                             sx={{
                                 bgcolor: alpha(
                                     theme.palette.background.paper,
-                                    0.7
+                                    0.7,
                                 ),
                                 marginY: theme.spacing(12),
                                 padding: theme.spacing(4),
                             }}
                         >
-                            <Typography variant="h1">Services</Typography>
+                            <Typography variant="h1">Software</Typography>
                             <Typography
                                 component="h2"
                                 variant="body1"
                                 color="textSecondary"
                             >
-                                Software Consulting
+                                Founding Software Leader | Cloud Infrastructure
+                                Architect | Full-Stack Engineer | DevOps | AI
                             </Typography>
                         </Paper>
                     </Grid>
@@ -61,133 +62,120 @@ const Home = (): ReactElement => {
                     marginY={theme.spacing(8)}
                     justifyContent="center"
                 >
-                    <Grid item xs={12} md={6}>
-                        <Card sx={SERVICE_CARD_SX}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                        <Card sx={HOME_CARD_SX}>
                             <CardHeader
                                 title="Software Leadership"
-                                subheader="Fractional CTO"
+                                subheader="Learning & Growth"
                             />
                             <CardContent>
                                 <List>
                                     <ListItem>
-                                        Assess current technology choices.
+                                        Founded several startups.
                                     </ListItem>
                                     <ListItem>
-                                        Develop strategic vision and software
-                                        principles.
+                                        6+ Years Senior Leadership Experience.
                                     </ListItem>
                                     <ListItem>
-                                        Oversee development roadmap and provide
-                                        cohesive deliverables.
+                                        Met with potential investors to explain
+                                        technical vision.
                                     </ListItem>
                                     <ListItem>
-                                        Improve and Monitor Software Development
-                                        Life Cycle.
+                                        Built cultural principles and coding
+                                        guidelines.
                                     </ListItem>
                                     <ListItem>
-                                        Pragmatic, not lofty solutions.
+                                        Recruited, hired, and trained software
+                                        engineering team.
+                                    </ListItem>
+                                    <ListItem>
+                                        Managed multi-domain, multi-year
+                                        software development process to
+                                        successful minimum viable product launch
+                                        with early delivery.
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Card sx={SERVICE_CARD_SX}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                        <Card sx={HOME_CARD_SX}>
                             <CardHeader
-                                title="Cloud Architecture & Infrastructure"
-                                subheader="AWS and Azure"
+                                title="Cloud/Infrastructure Solutions Architecture"
+                                subheader="Building Blocks for Success"
                             />
                             <CardContent>
                                 <List>
                                     <ListItem>
-                                        Maximize benefits of cloud computing.
-                                    </ListItem>
-                                    <ListItem>Minimize costs.</ListItem>
-                                    <ListItem>
-                                        Reduce operational and development
-                                        friction.
+                                        Extensive experience with AWS and Azure.
                                     </ListItem>
                                     <ListItem>
-                                        Implement modern DevOps practices.
+                                        Have Planned, Constructed, and
+                                        Maintained massive, multi-faceted
+                                        architectures across several capability
+                                        requests.
+                                    </ListItem>
+                                    <ListItem>
+                                        Have proven performance without
+                                        degradation at massive scale.
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Card sx={SERVICE_CARD_SX}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                        <Card sx={HOME_CARD_SX}>
                             <CardHeader
-                                title="Software Engineering"
-                                subheader="Limitless potential"
+                                title="DevOps / Platform / Site Reliability Engineering"
+                                subheader="Strong Foundation"
                             />
                             <CardContent>
                                 <List>
                                     <ListItem>
-                                        Build new functionality.
+                                        Extensive experience with Infrastructure
+                                        as Code and have contributed constructs
+                                        and libraries through Open Source (see
+                                        NavBar).
                                     </ListItem>
+                                    <ListItemButton href="https://projen.io/">
+                                        Extensive experience with automating and
+                                        standardizing repository creation.
+                                        Extensive contribution to projen, the
+                                        current leader in the space.
+                                    </ListItemButton>
                                     <ListItem>
-                                        Improve existing functionality.
-                                    </ListItem>
-                                    <ListItem>
-                                        Maintain high quality for the lowest
-                                        possible future maintenance.
+                                        Extensive experience with CI/CD and
+                                        automation. Many open source GitHub
+                                        Actions created or contributed to (see
+                                        NavBar).
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Card sx={SERVICE_CARD_SX}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                        <Card sx={HOME_CARD_SX}>
                             <CardHeader
-                                title="Reporting & Data"
-                                subheader="Nimble, accurate decision making"
+                                title="Full-Stack Software Engineering"
+                                subheader="Limitless Possibilities"
                             />
                             <CardContent>
                                 <List>
                                     <ListItem>
-                                        Automate extraction and transformation.
+                                        Extensive experience in various Object
+                                        Oriented Programming languages in both
+                                        the front and backends.
                                     </ListItem>
-                                    <ListItem>Maximize value.</ListItem>
-                                    <ListItem>Visualize patterns.</ListItem>
-                                    <ListItem>Act.</ListItem>
-                                </List>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Card sx={SERVICE_CARD_SX}>
-                            <CardHeader
-                                title="Staff Training & Recruitment"
-                                subheader="Expand Capabilities"
-                            />
-                            <CardContent>
-                                <List>
-                                    <ListItem>Aid the search.</ListItem>
                                     <ListItem>
-                                        Assess incoming talent for impact.
+                                        Highly effective mentor and advocate.
                                     </ListItem>
-                                    <ListItem>Ensure cultural fit.</ListItem>
                                     <ListItem>
-                                        Maximize Engineer learning.
+                                        Many open-source contributions and
+                                        creations (see NavBar).
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
-                    </Grid>
-                </Grid>
-                <Grid
-                    container
-                    justifyContent="center"
-                    spacing={4}
-                    marginBottom={theme.spacing(6)}
-                >
-                    <Grid item>
-                        <Button
-                            variant="contained"
-                            href={`mailto:consulting@dkershner.com`}
-                        >
-                            Contact Us
-                        </Button>
                     </Grid>
                 </Grid>
             </Container>

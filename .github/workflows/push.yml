@@ -31,12 +31,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Node 16
-        uses: actions/setup-node@v1
+      - name: Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.15.0
-          registry-url: https://npm.pkg.github.com
-          scope: "@obfns"
+          node-version-file: '.nvmrc'
       - name: Build Docusaurus
         run: |
           npm ci
