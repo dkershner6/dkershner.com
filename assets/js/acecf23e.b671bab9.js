@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdkershner_com=self.webpackChunkdkershner_com||[]).push([[1903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/recipes","blogTitle":"Kershner Recipes","authorsListPath":"/recipes/authors"}')}}]);
