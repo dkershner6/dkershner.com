@@ -131,6 +131,17 @@ const NODE_REACT_OPEN_SOURCE_ITEMS = [
     },
 ];
 
+const RECIPES_ITEMS = [
+    {
+        label: "All Recipes",
+        to: "/recipes",
+    },
+    {
+        label: "By Category / Tag",
+        to: "/recipes/tags",
+    },
+];
+
 const config = {
     title: SITE_TITLE,
     tagline: SITE_TAGLINE,
@@ -166,6 +177,17 @@ const config = {
         [
             "classic",
             {
+                blog: {
+                    blogTitle: "Kershner Recipes",
+                    blogDescription:
+                        "Kershner Family Recipes, almost always keto",
+                    blogSidebarCount: 10,
+                    blogSidebarTitle: "Recent Recipes",
+                    routeBasePath: "recipes",
+                    path: "./recipes",
+                    showReadingTime: true,
+                    editUrl: "https://github.com/dkershner6/dkershner.com",
+                },
                 docs: {
                     routeBasePath: BASE_RESOURCES_PATH.slice(1),
                     showLastUpdateAuthor: true,
@@ -176,6 +198,9 @@ const config = {
                     trackingID: "G-FP2E2SXJMK",
                     anonymizeIP: true,
                 },
+                theme: {
+                    customCss: require.resolve("./src/css/custom.css"),
+                },
             } satisfies Preset.Options,
         ],
     ],
@@ -185,11 +210,12 @@ const config = {
             defaultMode: "dark",
             respectPrefersColorScheme: true,
         },
+        image: "img/pot.png",
         navbar: {
             title: SITE_TITLE,
             logo: {
                 alt: SITE_TITLE,
-                src: "img/logo.png",
+                src: "img/pot.png",
             },
             items: [
                 {
@@ -212,24 +238,50 @@ const config = {
                     position: "left",
                     items: NODE_REACT_OPEN_SOURCE_ITEMS,
                 },
+                {
+                    label: "(Food) Recipes",
+                    position: "left",
+                    items: RECIPES_ITEMS,
+                },
+                {
+                    href: "https://www.linkedin.com/in/derek-kershner-54b3392",
+                    "aria-label": "My LinkedIn",
+                    className: "navbar__icon navbar__linkedin",
+                    position: "right",
+                    html: '<i class="fa fa-linkedin"></i>',
+                },
+                {
+                    href: "https://github.com/dkershner6",
+                    "aria-label": "My GitHub",
+                    className: "navbar__icon navbar__github",
+                    position: "right",
+                    html: '<i class="fa fa-github"></i>',
+                },
             ],
         },
         footer: {
             style: "dark",
             links: [
                 {
-                    title: "Home",
+                    title: "Content / Links",
                     items: [
                         {
-                            label: "Home",
-                            to: "/",
-                            activeBaseRegex: "/$",
+                            label: "Software Resources & Tips",
+                            to: BASE_RESOURCES_PATH,
+                        },
+                        {
+                            label: "All Recipes",
+                            to: "/recipes",
+                        },
+                        {
+                            label: "My GitHub",
+                            to: "https://github.com/dkershner6",
+                        },
+                        {
+                            label: "My LinkedIn",
+                            to: "https://www.linkedin.com/in/derek-kershner-54b3392",
                         },
                     ],
-                },
-                {
-                    title: "Software Resources & Tips",
-                    items: RESOURCES_ITEMS,
                 },
                 {
                     title: "CDK Constructs OSS",
@@ -242,15 +294,6 @@ const config = {
                 {
                     title: "Node/React OSS",
                     items: NODE_REACT_OPEN_SOURCE_ITEMS,
-                },
-                {
-                    title: "More",
-                    items: [
-                        {
-                            label: "GitHub",
-                            href: "https://github.com/dkershner6",
-                        },
-                    ],
                 },
             ],
             copyright: `Copyright © ${new Date().getFullYear()} Kershner Endeavors LLC. All rights reserved.`,
