@@ -1,10 +1,13 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+import type { Config } from "@docusaurus/types";
+import type * as Preset from '@docusaurus/preset-classic';
 
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-const lightCodeTheme = require("prism-react-renderer/themes/github");
+import { themes } from "prism-react-renderer";
 
-const SITE_TITLE = "Kershner Endeavors";
+const darkCodeTheme = themes.dracula;
+const lightCodeTheme = themes.github;
+
+const SITE_TITLE = "Derek Kershner";
+const SITE_TAGLINE = "Founding Software Leader | Cloud Infrastructure Architect | Full-Stack Engineer | DevOps | AI";
 const BASE_RESOURCES_PATH = "/resources";
 
 const RESOURCES_ITEMS = [
@@ -109,10 +112,9 @@ const NODE_REACT_OPEN_SOURCE_ITEMS = [
     },
 ];
 
-/** @type {import('@docusaurus/types').Config} */
 const config = {
     title: SITE_TITLE,
-    tagline: "Software Consulting",
+    tagline: SITE_TAGLINE,
     url: "https://dkershner.com",
     baseUrl: "/",
     onBrokenLinks: "throw",
@@ -144,7 +146,6 @@ const config = {
     presets: [
         [
             "classic",
-            /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
                     routeBasePath: BASE_RESOURCES_PATH.slice(1),
@@ -156,12 +157,11 @@ const config = {
                     trackingID: "G-FP2E2SXJMK",
                     anonymizeIP: true,
                 },
-            }),
+            }) satisfies Preset.Options,
         ],
     ],
 
     themeConfig:
-        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             colorMode: {
                 defaultMode: "dark",
@@ -174,11 +174,6 @@ const config = {
                     src: "img/logo.png",
                 },
                 items: [
-                    {
-                        label: "Services",
-                        to: "/",
-                        activeBaseRegex: "/$",
-                    },
                     {
                         label: "Software Resources & Tips",
                         position: "left",
@@ -237,7 +232,7 @@ const config = {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
             },
-        }),
+        }) satisfies Preset.ThemeConfig,
     plugins: [
         [
             "@cmfcmf/docusaurus-search-local",
@@ -247,7 +242,6 @@ const config = {
             },
         ],
     ],
-};
+} satisfies Config;
 
-// eslint-disable-next-line no-undef
-module.exports = config;
+export default config;

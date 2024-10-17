@@ -8,7 +8,7 @@ import {
     CardContent,
     CardHeader,
     Container,
-    Grid,
+    Grid2 as Grid,
     List,
     ListItem,
     Paper,
@@ -31,7 +31,7 @@ const Home = (): ReactElement => {
         <Box>
             <Parallax strength={300} bgImage="/img/geometric.webp">
                 <Grid container justifyContent="flex-end">
-                    <Grid item textAlign="right">
+                    <Grid textAlign="right">
                         <Paper
                             sx={{
                                 bgcolor: alpha(
@@ -42,13 +42,13 @@ const Home = (): ReactElement => {
                                 padding: theme.spacing(4),
                             }}
                         >
-                            <Typography variant="h1">Services</Typography>
+                            <Typography variant="h1">Skills</Typography>
                             <Typography
                                 component="h2"
                                 variant="body1"
                                 color="textSecondary"
                             >
-                                Software Consulting
+                                "Founding Software Leader | Cloud Infrastructure Architect | Full-Stack Engineer | DevOps | AI"
                             </Typography>
                         </Paper>
                     </Grid>
@@ -61,37 +61,24 @@ const Home = (): ReactElement => {
                     marginY={theme.spacing(8)}
                     justifyContent="center"
                 >
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={SERVICE_CARD_SX}>
                             <CardHeader
                                 title="Software Leadership"
-                                subheader="Fractional CTO"
                             />
                             <CardContent>
                                 <List>
                                     <ListItem>
-                                        Assess current technology choices.
+                                        Founded several startups.
                                     </ListItem>
                                     <ListItem>
-                                        Develop strategic vision and software
-                                        principles.
-                                    </ListItem>
-                                    <ListItem>
-                                        Oversee development roadmap and provide
-                                        cohesive deliverables.
-                                    </ListItem>
-                                    <ListItem>
-                                        Improve and Monitor Software Development
-                                        Life Cycle.
-                                    </ListItem>
-                                    <ListItem>
-                                        Pragmatic, not lofty solutions.
+                                        6+ Years Senior Leadership Experience.
                                     </ListItem>
                                 </List>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={SERVICE_CARD_SX}>
                             <CardHeader
                                 title="Cloud Architecture & Infrastructure"
@@ -114,7 +101,7 @@ const Home = (): ReactElement => {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={SERVICE_CARD_SX}>
                             <CardHeader
                                 title="Software Engineering"
@@ -136,7 +123,7 @@ const Home = (): ReactElement => {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={SERVICE_CARD_SX}>
                             <CardHeader
                                 title="Reporting & Data"
@@ -154,7 +141,7 @@ const Home = (): ReactElement => {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
                         <Card sx={SERVICE_CARD_SX}>
                             <CardHeader
                                 title="Staff Training & Recruitment"
@@ -181,7 +168,7 @@ const Home = (): ReactElement => {
                     spacing={4}
                     marginBottom={theme.spacing(6)}
                 >
-                    <Grid item>
+                    <Grid>
                         <Button
                             variant="contained"
                             href={`mailto:consulting@dkershner.com`}
