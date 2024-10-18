@@ -7,7 +7,11 @@ const lightCodeTheme = themes.github;
 
 const SITE_TITLE = "Derek Kershner";
 const SITE_TAGLINE =
-    "Founding Software Leader | Cloud Infrastructure Architect | Full-Stack Engineer | DevOps | AI";
+    "Founding Software Leader | Cloud Architect | Full-Stack Engineer | DevOps | AI";
+
+export const GITHUB_URL = "https://github.com/dkershner6";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/derek-kershner";
+
 const BASE_RESOURCES_PATH = "/resources";
 
 const RESOURCES_ITEMS = [
@@ -142,176 +146,188 @@ const RECIPES_ITEMS = [
     },
 ];
 
-const config = {
-    title: SITE_TITLE,
-    tagline: SITE_TAGLINE,
-    url: "https://dkershner.com",
-    baseUrl: "/",
-    onBrokenLinks: "throw",
-    onBrokenMarkdownLinks: "warn",
-    favicon: "img/favicon.png",
-    headTags: [
-        {
-            tagName: "meta",
-            attributes: {
-                property: "og:image",
-                content: "https://dkershner.com/img/geometric.webp",
-            },
-        },
-    ],
-
-    // GitHub pages deployment config.
-    // If you aren't using GitHub pages, you don't need these.
-    organizationName: "dkershner6", // Usually your GitHub org/user name.
-    projectName: "dkershner.com", // Usually your repo name.
-
-    // Even if you don't use internalization, you can use this field to set useful
-    // metadata like html lang. For example, if your site is Chinese, you may want
-    // to replace "en" with "zh-Hans".
-    i18n: {
-        defaultLocale: "en",
-        locales: ["en"],
-    },
-
-    presets: [
-        [
-            "classic",
+const createConfig = async () => {
+    return {
+        title: SITE_TITLE,
+        tagline: SITE_TAGLINE,
+        url: "https://dkershner.com",
+        baseUrl: "/",
+        onBrokenLinks: "throw",
+        onBrokenMarkdownLinks: "warn",
+        favicon: "img/favicon.png",
+        headTags: [
             {
-                blog: {
-                    blogTitle: "Kershner Recipes",
-                    blogDescription:
-                        "Kershner Family Recipes, almost always keto",
-                    blogSidebarCount: 10,
-                    blogSidebarTitle: "Recent Recipes",
-                    routeBasePath: "recipes",
-                    path: "./recipes",
-                    showReadingTime: true,
-                    editUrl: "https://github.com/dkershner6/dkershner.com",
+                tagName: "meta",
+                attributes: {
+                    property: "og:image",
+                    content: "https://dkershner.com/img/geometric.webp",
                 },
-                docs: {
-                    routeBasePath: BASE_RESOURCES_PATH.slice(1),
-                    showLastUpdateAuthor: true,
-                    showLastUpdateTime: true,
-                    sidebarPath: require.resolve("./sidebars.js"),
-                },
-                gtag: {
-                    trackingID: "G-FP2E2SXJMK",
-                    anonymizeIP: true,
-                },
-                theme: {
-                    customCss: require.resolve("./src/css/custom.css"),
-                },
-            } satisfies Preset.Options,
-        ],
-    ],
-
-    themeConfig: {
-        colorMode: {
-            defaultMode: "light",
-            respectPrefersColorScheme: true,
-        },
-        image: "img/pot.png",
-        navbar: {
-            title: SITE_TITLE,
-            logo: {
-                alt: SITE_TITLE,
-                src: "img/pot.png",
-            },
-            items: [
-                {
-                    label: "Software Resources & Tips",
-                    position: "left",
-                    items: RESOURCES_ITEMS,
-                },
-                {
-                    label: "CDK Constructs OSS",
-                    position: "left",
-                    items: OPEN_SOURCE_CDK_CONSTRUCTS_ITEMS,
-                },
-                {
-                    label: "Github Actions OSS",
-                    position: "left",
-                    items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
-                },
-                {
-                    label: "Node/React OSS",
-                    position: "left",
-                    items: NODE_REACT_OPEN_SOURCE_ITEMS,
-                },
-                {
-                    label: "(Food) Recipes",
-                    position: "left",
-                    items: RECIPES_ITEMS,
-                },
-                {
-                    href: "https://www.linkedin.com/in/derek-kershner-54b3392",
-                    "aria-label": "My LinkedIn",
-                    className: "navbar__icon navbar__linkedin",
-                    position: "right",
-                    html: '<i class="fa fa-linkedin"></i>',
-                },
-                {
-                    href: "https://github.com/dkershner6",
-                    "aria-label": "My GitHub",
-                    className: "navbar__icon navbar__github",
-                    position: "right",
-                    html: '<i class="fa fa-github"></i>',
-                },
-            ],
-        },
-        footer: {
-            style: "dark",
-            links: [
-                {
-                    title: "Content / Links",
-                    items: [
-                        {
-                            label: "Software Resources & Tips",
-                            to: BASE_RESOURCES_PATH,
-                        },
-                        {
-                            label: "All Recipes",
-                            to: "/recipes",
-                        },
-                        {
-                            label: "My GitHub",
-                            to: "https://github.com/dkershner6",
-                        },
-                        {
-                            label: "My LinkedIn",
-                            to: "https://www.linkedin.com/in/derek-kershner-54b3392",
-                        },
-                    ],
-                },
-                {
-                    title: "CDK Constructs OSS",
-                    items: OPEN_SOURCE_CDK_CONSTRUCTS_ITEMS,
-                },
-                {
-                    title: "Github Actions OSS",
-                    items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
-                },
-                {
-                    title: "Node/React OSS",
-                    items: NODE_REACT_OPEN_SOURCE_ITEMS,
-                },
-            ],
-            copyright: `Copyright © ${new Date().getFullYear()} Kershner Endeavors LLC. All rights reserved.`,
-        },
-        prism: {
-            theme: lightCodeTheme,
-            darkTheme: darkCodeTheme,
-        },
-    } satisfies Preset.ThemeConfig,
-    plugins: [
-        [
-            "@cmfcmf/docusaurus-search-local",
-            {
-                indexBlog: false,
-                indexDocs: true,
             },
         ],
-    ],
-} satisfies Config;
 
-export default config;
+        // GitHub pages deployment config.
+        // If you aren't using GitHub pages, you don't need these.
+        organizationName: "dkershner6", // Usually your GitHub org/user name.
+        projectName: "dkershner.com", // Usually your repo name.
+
+        // Even if you don't use internalization, you can use this field to set useful
+        // metadata like html lang. For example, if your site is Chinese, you may want
+        // to replace "en" with "zh-Hans".
+        i18n: {
+            defaultLocale: "en",
+            locales: ["en"],
+        },
+
+        presets: [
+            [
+                "classic",
+                {
+                    blog: {
+                        blogTitle: "Kershner Recipes",
+                        blogDescription:
+                            "Kershner Family Recipes, almost always keto",
+                        blogSidebarCount: 10,
+                        blogSidebarTitle: "Recent Recipes",
+                        routeBasePath: "recipes",
+                        path: "./recipes",
+                        showReadingTime: true,
+                        editUrl: "https://github.com/dkershner6/dkershner.com",
+                    },
+                    docs: {
+                        routeBasePath: BASE_RESOURCES_PATH.slice(1),
+                        showLastUpdateAuthor: true,
+                        showLastUpdateTime: true,
+                        sidebarPath: require.resolve("./sidebars.js"),
+                    },
+                    gtag: {
+                        trackingID: "G-FP2E2SXJMK",
+                        anonymizeIP: true,
+                    },
+                    theme: {
+                        customCss: require.resolve("./src/css/custom.css"),
+                    },
+                } satisfies Preset.Options,
+            ],
+        ],
+
+        themeConfig: {
+            colorMode: {
+                defaultMode: "light",
+                respectPrefersColorScheme: true,
+            },
+            image: "img/pot.png",
+            navbar: {
+                title: SITE_TITLE,
+                logo: {
+                    alt: SITE_TITLE,
+                    src: "img/pot.png",
+                },
+                items: [
+                    {
+                        label: "Software Resources & Tips",
+                        position: "left",
+                        items: RESOURCES_ITEMS,
+                    },
+                    {
+                        label: "CDK Constructs OSS",
+                        position: "left",
+                        items: OPEN_SOURCE_CDK_CONSTRUCTS_ITEMS,
+                    },
+                    {
+                        label: "Github Actions OSS",
+                        position: "left",
+                        items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
+                    },
+                    {
+                        label: "Node/React OSS",
+                        position: "left",
+                        items: NODE_REACT_OPEN_SOURCE_ITEMS,
+                    },
+                    {
+                        label: "(Food) Recipes",
+                        position: "left",
+                        items: RECIPES_ITEMS,
+                    },
+                    {
+                        href: LINKEDIN_URL,
+                        "aria-label": "My LinkedIn",
+                        className: "navbar__icon navbar__linkedin",
+                        position: "right",
+                        html: '<i class="fa fa-linkedin"></i>',
+                    },
+                    {
+                        href: GITHUB_URL,
+                        "aria-label": "My GitHub",
+                        className: "navbar__icon navbar__github",
+                        position: "right",
+                        html: '<i class="fa fa-github"></i>',
+                    },
+                ],
+            },
+            footer: {
+                style: "dark",
+                links: [
+                    {
+                        title: "Content / Links",
+                        items: [
+                            {
+                                label: "Software Resources & Tips",
+                                to: BASE_RESOURCES_PATH,
+                            },
+                            {
+                                label: "All Recipes",
+                                to: "/recipes",
+                            },
+                            {
+                                label: "My GitHub",
+                                to: GITHUB_URL,
+                            },
+                            {
+                                label: "My LinkedIn",
+                                to: LINKEDIN_URL,
+                            },
+                        ],
+                    },
+                    {
+                        title: "CDK Constructs OSS",
+                        items: OPEN_SOURCE_CDK_CONSTRUCTS_ITEMS,
+                    },
+                    {
+                        title: "Github Actions OSS",
+                        items: OPEN_SOURCE_GITHUB_ACTIONS_ITEMS,
+                    },
+                    {
+                        title: "Node/React OSS",
+                        items: NODE_REACT_OPEN_SOURCE_ITEMS,
+                    },
+                ],
+                copyright: `Copyright © ${new Date().getFullYear()} Kershner Endeavors LLC. All rights reserved.`,
+            },
+            prism: {
+                theme: lightCodeTheme,
+                darkTheme: darkCodeTheme,
+            },
+        } satisfies Preset.ThemeConfig,
+        plugins: [
+            [
+                "docusaurus2-dotenv",
+                {
+                    path: "./.env.local",
+                },
+            ],
+            [
+                "@cmfcmf/docusaurus-search-local",
+                {
+                    indexBlog: false,
+                    indexDocs: true,
+                },
+            ],
+        ],
+        customFields: {
+            githubUrl: GITHUB_URL,
+            linkedInUrl: LINKEDIN_URL,
+        },
+    } satisfies Config;
+};
+
+export default createConfig;
