@@ -23,10 +23,12 @@ const EMAIL_ADDRESS = process.env.EMAIL_ADDRESS;
 const PHONE_NUMBER = process.env.PHONE_NUMBER;
 
 const HIGHLIGHTED_SKILLS = [
-    "AWS",
-    "Open Source Contributor",
-    "React",
-    "TypeScript",
+    "6+ yrs AWS",
+    "6+ yrs Cloud Architecture",
+    "8+ yrs Open Source",
+    "12+ yrs SQL",
+    "8+ yrs React",
+    "8+ yrs TypeScript",
 ];
 
 const Resume = () => {
@@ -140,14 +142,70 @@ const Resume = () => {
 
     const renderLeftColumn = () => {
         return (
+            <Box display="flex" flexDirection="column" height="100%">
+                <Box marginBottom={theme.spacing(1)}>
+                    {renderHighlightedSkills()}
+                </Box>
+                <Box marginBottom={theme.spacing(1)}>{renderEducation()}</Box>
+                <Box marginBottom={theme.spacing(1)}>{renderReferences()}</Box>
+                <Box flex="1"></Box>
+                <Box marginBottom={theme.spacing(1)}>{renderBuiltWith()}</Box>
+            </Box>
+        );
+    };
+
+    const renderHighlightedSkills = () => {
+        return (
             <Card>
                 <CardHeader subheader="Highlighted Skills" />
                 <CardContent sx={{ paddingTop: 0 }}>
+                    {HIGHLIGHTED_SKILLS.map((skill) => (
+                        <Typography key={skill} variant="body2">
+                            {skill}
+                        </Typography>
+                    ))}
+                </CardContent>
+            </Card>
+        );
+    };
+
+    const renderEducation = () => {
+        return (
+            <Card>
+                <CardHeader subheader="Education" />
+                <CardContent sx={{ paddingTop: 0 }}>
                     <Typography variant="body2">
-                        {HIGHLIGHTED_SKILLS.join(", ")}
+                        University of Oregon, 2005
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        BS Business Administration, Finance
                     </Typography>
                 </CardContent>
             </Card>
+        );
+    };
+
+    const renderReferences = () => {
+        return (
+            <Card>
+                <CardHeader subheader="Recommendations / References" />
+                <CardContent sx={{ paddingTop: 0 }}>
+                    <Typography variant="body2">
+                        Many recommendations available on LinkedIn.
+                    </Typography>
+                    <Typography variant="body2">
+                        References available upon request.
+                    </Typography>
+                </CardContent>
+            </Card>
+        );
+    };
+
+    const renderBuiltWith = () => {
+        return (
+            <Typography fontSize={10}>
+                *This resume built with React Typescript
+            </Typography>
         );
     };
 
@@ -229,8 +287,7 @@ const Resume = () => {
                 <CardContent sx={{ paddingTop: 0 }}>
                     <Typography variant="body2">
                         Software Consulting for companies such as Laird
-                        Superfood (Data Warehouse and ERP Logistics
-                        Integration).
+                        Superfood, KIALOA, and founded startups.
                     </Typography>
                     <Typography variant="body2">
                         Open Source Software contributions to libraries such as
