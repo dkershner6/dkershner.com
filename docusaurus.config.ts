@@ -215,12 +215,12 @@ const createConfig = async () => {
                 defaultMode: "light",
                 respectPrefersColorScheme: true,
             },
-            image: "img/pot.png",
+            image: "img/pot.webp",
             navbar: {
                 title: SITE_TITLE,
                 logo: {
                     alt: SITE_TITLE,
-                    src: "img/pot.png",
+                    src: "img/pot.webp",
                 },
                 items: [
                     {
