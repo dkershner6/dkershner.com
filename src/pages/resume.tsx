@@ -229,28 +229,18 @@ const Resume = () => {
                 />
                 <CardContent sx={{ paddingTop: 0 }}>
                     <Typography variant="body2">
-                        Built e-commerce marketplace-capable software platform
-                        (Shopify-like with vastly increased Supply-side
-                        capability) and an e-commerce site.
+                        Built & empowered team to create B2B (Supply) and B2C
+                        (Storefront) marketplace e-commerce platform from the
+                        ground up in a multi-year agile development process that
+                        delivered specified product requirements early (25%).
                     </Typography>
                     <Typography variant="body2">
-                        Met with potential investors to explain technical
-                        vision.
-                    </Typography>
-                    <Typography variant="body2">
-                        Planned and constructed initial architecture and
-                        foundational software.
-                    </Typography>
-                    <Typography variant="body2">
-                        Built cultural principles and coding guidelines.
-                    </Typography>
-                    <Typography variant="body2">
-                        Recruited, hired, and trained software engineering team.
-                    </Typography>
-                    <Typography variant="body2">
-                        Managed multi-domain, multi-year software development
-                        process to successful minimum viable product launch with
-                        early delivery (25%).
+                        Developer experience was consistently reviewed as very
+                        strong due to clarity of cultural values and consistent,
+                        honest feedback. Maintained leanness through DevOps
+                        innovation such as fully automated CI/CD and fully
+                        automated, standardized repository creation and
+                        configuration.
                     </Typography>
                 </CardContent>
             </Card>
@@ -262,14 +252,20 @@ const Resume = () => {
             <Card>
                 <CardHeader
                     title="Software Architect"
-                    subheader="CBT Nuggets, 08/19 - 05/21"
+                    subheader={
+                        <>
+                            {`CBT Nuggets, 08/19 - 05/21`}
+                            <br />
+                            {`Senior Software Engineer`}
+                        </>
+                    }
                 />
                 <CardContent sx={{ paddingTop: 0 }}>
                     <Typography variant="body2">
                         Was Architect and Advocate for the most productive
-                        Software Engineering team in the company managing the
-                        more complex domains, providing 50% above average code
-                        impact and being the single most impactful engineer
+                        Software Engineering team in the company managing
+                        complex domains, providing 50% above average code impact
+                        and personally being the single most impactful engineer
                         (Pluralsight Flow measured).
                     </Typography>
                 </CardContent>
@@ -286,15 +282,17 @@ const Resume = () => {
                 />
                 <CardContent sx={{ paddingTop: 0 }}>
                     <Typography variant="body2">
-                        Software Consulting for companies such as Laird
-                        Superfood, KIALOA, and founded startups.
+                        Consulted and Partnered with companies such as Laird
+                        Superfood, founded startups, experienced successful
+                        exits including Kialoa Paddles being acquired by Werner
+                        Paddles.
                     </Typography>
                     <Typography variant="body2">
-                        Open Source Software contributions to libraries such as
-                        projen and the AWS CDK.
+                        Contributed to open-source software libraries such as
+                        Projen and the AWS CDK.
                     </Typography>
                     <Typography variant="body2">
-                        Volunteering for non-profits.
+                        Volunteered for non-profits.
                     </Typography>
                 </CardContent>
             </Card>
@@ -306,21 +304,31 @@ const Resume = () => {
             <Card>
                 <CardHeader
                     title="Director of Business Analytics"
-                    subheader="Altrec, 11/06 - 10/14"
+                    subheader={
+                        <>
+                            {"Altrec, 11/06 - 10/14"}
+                            <br />
+                            {
+                                "Marketing Analytics Manager, Search Marketing Analyst"
+                            }
+                        </>
+                    }
                 />
                 <CardContent sx={{ paddingTop: 0 }}>
                     <Typography variant="body2">
                         Handled the sourcing and presentation of all company
                         analysis and reporting to the rest of the senior
-                        management team, received award for critical tools.
+                        management team.
                     </Typography>
                     <Typography variant="body2">
-                        Managed Marketing Team and associated budget. Planned
-                        Merchandise strategy.
+                        Planned Merchandise strategy and managed Marketing team
+                        and associated budget, received Altrec trail guide award
+                        for automating these processes.
                     </Typography>
                     <Typography variant="body2">
-                        Was solely responsible for a project that liquidated
-                        $400K of distressed inventory.
+                        Was solely responsible for development of a project that
+                        sold $400K of distressed inventory through a new B2C
+                        process.
                     </Typography>
                 </CardContent>
             </Card>

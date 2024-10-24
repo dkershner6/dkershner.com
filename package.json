@@ -1,6 +1,6 @@
 {
   "name": "dkershner.com",
-  "version": "1.51.1",
+  "version": "1.51.2",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
