@@ -1,10 +1,15 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from "react";
 
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
+import ArchitectureIcon from "@mui/icons-material/Architecture";
+import EngineeringIcon from "@mui/icons-material/Engineering";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
+import CartIcon from "@mui/icons-material/ShoppingCart";
 import {
     AppBar,
     Box,
@@ -14,7 +19,6 @@ import {
     Container,
     Grid2 as Grid,
     IconButton,
-    Toolbar,
     Typography,
     useTheme,
 } from "@mui/material";
@@ -22,14 +26,195 @@ import {
 const EMAIL_ADDRESS = process.env.EMAIL_ADDRESS;
 const PHONE_NUMBER = process.env.PHONE_NUMBER;
 
-const HIGHLIGHTED_SKILLS = [
-    "6+ yrs AWS",
-    "6+ yrs Cloud Architecture",
-    "8+ yrs Open Source",
-    "12+ yrs SQL",
-    "8+ yrs React",
-    "8+ yrs TypeScript",
+const enum ResumeType {
+    CARMA,
+    FINCH_CARE,
+    FIRST_AMERICAN,
+    HEADWAY,
+    HUMAN_INTEREST,
+    INOVALON,
+    LITMOS,
+    MEDBILL_AI,
+    NARRATIZE,
+    OFFER_FIT,
+    SCRUM_ALLIANCE,
+    WILLOW_HEALTH,
+
+    AWS_REACT_TS,
+    AWS_DATA_SCRAPING,
+    LEADERSHIP,
+}
+
+const RESUME_TYPE = ResumeType.FIRST_AMERICAN;
+
+const CONSULTING_FORWARD_RESUME_TYPES = [
+    ResumeType.CARMA,
+    ResumeType.FINCH_CARE,
+    ResumeType.INOVALON,
+    ResumeType.MEDBILL_AI,
+    ResumeType.WILLOW_HEALTH,
 ];
+
+const MOBILE_FORWARD_RESUME_TYPES = [
+    ResumeType.CARMA,
+    ResumeType.FINCH_CARE,
+    ResumeType.INOVALON,
+    ResumeType.MEDBILL_AI,
+];
+
+const HIGHLIGHTED_SKILLS_MAP: Record<ResumeType, string[]> = {
+    [ResumeType.CARMA]: [
+        "6+ yrs AWS",
+        "10+ yrs Cloud Architecture",
+        "5+ yrs Founding Startups",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+        "3+ yrs React Native",
+    ],
+    [ResumeType.FINCH_CARE]: [
+        "10+ yrs Cloud Architecture",
+        "10+ yrs Full-Stack Software",
+        "8+ yrs Open Source Software",
+        "3+ yrs Mobile App Development (React Native)",
+        "5+ yrs Senior Leadership",
+        "5+ yrs in Startups",
+    ],
+    [ResumeType.FIRST_AMERICAN]: [
+        "6+ yrs AWS (incl. all listed services)",
+        "10+ yrs Cloud Architecture",
+        "6+ yrs C#/.NET Core",
+        "8+ yrs DevOps, CI/CD, IaC",
+        "6+ yrs Docker",
+        "10+ yrs Full-Stack Software",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL (DynamoDB)",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.HEADWAY]: [
+        "6+ yrs AWS",
+        "10+ yrs Cloud Architecture",
+        "10+ yrs Full-Stack Software",
+        "8+ yrs Open Source Software",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL (DynamoDB)",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.HUMAN_INTEREST]: [
+        "6+ yrs AWS",
+        "10+ yrs Cloud Architecture",
+        "Life-long Finance Enthusiast",
+        "8+ yrs Open Source Software",
+        "2 yrs Monolith to microservices (SOA)",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React",
+        "8+ yrs TypeScript",
+    ],
+    [ResumeType.INOVALON]: [
+        "3+ yrs ASP.NET Core",
+        "6+ yrs Azure (incl. Azure DevOps",
+        "10+ yrs Cloud Architecture",
+        "8+ yrs Containers",
+        "5+ yrs Founding Startups",
+        "3+ yrs Mobile App Development (React Native)",
+        "5+ yrs Offshore Management",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.LITMOS]: [
+        "6+ yrs AWS",
+        "6+ yrs Azure",
+        "10+ yrs Cloud Architecture",
+        "8+ yrs Containers",
+        "6+ yrs C#/.NET Core",
+        "8+ yrs DevOps, CI/CD",
+        "2 yrs EdTech",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL (incl OpenSearch, Redis)",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.MEDBILL_AI]: [
+        "6+ yrs AWS",
+        "10+ yrs Cloud Architecture",
+        "8+ yrs Containers",
+        "5+ yrs Founding Startups",
+        "Experimented with Gen AI (and understood your joke)",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+        "3+ yrs React Native",
+    ],
+    [ResumeType.NARRATIZE]: [
+        "Experimented with AI LLMs",
+        "6+ yrs AWS",
+        "10+ yrs Cloud Architecture",
+        "10+ yrs Data Analytics",
+        "5+ yrs Founding Startups",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.OFFER_FIT]: [
+        "10+ yrs Cloud Architecture",
+        "8+ yrs Containers, Some Kubernetes",
+        "5+ yrs Founding Startups",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.SCRUM_ALLIANCE]: [
+        "6+ yrs Azure",
+        "3+ yrs Azure DevOps, 8+ yrs GitHub Actions",
+        "6+ yrs C#/.NET Core",
+        "10+ yrs Cloud Architecture",
+        "15+ yrs E-Commerce, incl 3rd Party Platforms (and creating one)",
+        "10+ yrs Full-Stack Software",
+        "5+ yrs Founding Startups",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+    ],
+    [ResumeType.WILLOW_HEALTH]: [
+        "10+ yrs Cloud Architecture",
+        "8+ yrs Containers",
+        "14+ yrs Data Analytics",
+        "10+ yrs Full-Stack Software",
+        "5+ yrs Founding Startups",
+        "5+ yrs PCI/PII & User Management",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.AWS_REACT_TS]: [
+        "6+ yrs AWS",
+        "6+ yrs Azure",
+        "10+ yrs Cloud Architecture",
+        "8+ yrs DevOps, CI/CD",
+        "5+ yrs Founding Startups",
+        "8+ yrs Open Source Software",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React",
+        "5+ yrs Senior Leadership",
+        "8+ yrs TypeScript",
+    ],
+    [ResumeType.AWS_DATA_SCRAPING]: [
+        "6+ yrs AWS",
+        "6+ yrs AWS S3",
+        "8+ yrs Open Source Software",
+        "3+ yrs Puppeteer",
+        "8+ yrs TypeScript",
+    ],
+    [ResumeType.LEADERSHIP]: [
+        "Experimented with AI LLMs",
+        "10+ yrs Cloud Architecture",
+        "10+ yrs Full-Stack Software",
+        "5+ yrs Founding Startups",
+        "8+ yrs Open Source Software",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+    ],
+};
 
 const Resume = () => {
     const { siteConfig } = useDocusaurusContext();
@@ -38,104 +223,106 @@ const Resume = () => {
     const renderHeader = () => {
         return (
             <AppBar color="inherit" position="static">
-                <Toolbar>
-                    <Grid container width="100%" alignItems="center">
-                        <Grid size={{ sm: 8.75 }}>
-                            <Typography component="h1" variant="h2">
-                                Derek Kershner
-                            </Typography>
-                            <Typography
-                                component="h2"
-                                variant="caption"
-                                color="textSecondary"
-                            >
-                                {siteConfig.tagline}
-                            </Typography>
-                        </Grid>
-                        <Grid size={{ sm: 3.25 }}>
-                            <Box>
-                                <IconButton
-                                    size="small"
-                                    href={
-                                        EMAIL_ADDRESS
-                                            ? `mailto:${EMAIL_ADDRESS}`
-                                            : undefined
-                                    }
-                                >
-                                    <MailIcon fontSize="small" />
-                                </IconButton>
-                                <Typography
-                                    component="span"
-                                    color="textSecondary"
-                                    variant="caption"
-                                >
-                                    {EMAIL_ADDRESS ?? "Sanitized for robots"}
-                                </Typography>
-                            </Box>
-                            <Box>
-                                <IconButton
-                                    size="small"
-                                    href={
-                                        PHONE_NUMBER
-                                            ? `tel:${PHONE_NUMBER}`
-                                            : undefined
-                                    }
-                                >
-                                    <PhoneIcon fontSize="small" />
-                                </IconButton>
-                                <Typography
-                                    component="span"
-                                    color="textSecondary"
-                                    variant="caption"
-                                >
-                                    {PHONE_NUMBER ?? "Sanitized for robots"}
-                                </Typography>
-                            </Box>
-                            <Box>
-                                <IconButton
-                                    size="small"
-                                    href={
-                                        siteConfig.customFields
-                                            ?.githubUrl as string
-                                    }
-                                >
-                                    <GitHubIcon fontSize="small" />
-                                </IconButton>
-                                <Typography
-                                    component="span"
-                                    color="textSecondary"
-                                    variant="caption"
-                                >
-                                    dkershner6
-                                </Typography>
-                            </Box>
-                            <Box>
-                                <IconButton
-                                    size="small"
-                                    href={
-                                        siteConfig.customFields
-                                            ?.linkedInUrl as string
-                                    }
-                                >
-                                    <LinkedInIcon fontSize="small" />
-                                </IconButton>
-                                <Typography
-                                    component="span"
-                                    color="textSecondary"
-                                    variant="caption"
-                                >
-                                    {(
-                                        siteConfig.customFields
-                                            ?.linkedInUrl as string
-                                    )?.replace(
-                                        "https://www.linkedin.com/in/",
-                                        "",
-                                    )}
-                                </Typography>
-                            </Box>
-                        </Grid>
+                <Grid
+                    container
+                    width="100%"
+                    alignItems="center"
+                    sx={{ paddingLeft: theme.spacing(2) }}
+                >
+                    <Grid size={{ sm: 8.75 }}>
+                        <Typography component="h1" variant="h2" color="primary">
+                            Derek Kershner
+                        </Typography>
+                        <Typography
+                            component="h2"
+                            variant="caption"
+                            color="textSecondary"
+                        >
+                            {siteConfig.tagline}
+                        </Typography>
                     </Grid>
-                </Toolbar>
+                    <Grid size={{ sm: 3.25 }}>
+                        <Box>
+                            <IconButton
+                                size="small"
+                                href={
+                                    EMAIL_ADDRESS
+                                        ? `mailto:${EMAIL_ADDRESS}`
+                                        : undefined
+                                }
+                            >
+                                <MailIcon fontSize="small" color="primary" />
+                            </IconButton>
+                            <Typography
+                                component="span"
+                                color="textSecondary"
+                                variant="caption"
+                            >
+                                {EMAIL_ADDRESS ?? "Sanitized for robots"}
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <IconButton
+                                size="small"
+                                href={
+                                    PHONE_NUMBER
+                                        ? `tel:${PHONE_NUMBER}`
+                                        : undefined
+                                }
+                            >
+                                <PhoneIcon fontSize="small" color="primary" />
+                            </IconButton>
+                            <Typography
+                                component="span"
+                                color="textSecondary"
+                                variant="caption"
+                            >
+                                {PHONE_NUMBER ?? "Sanitized for robots"}
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <IconButton
+                                size="small"
+                                href={
+                                    siteConfig.customFields?.githubUrl as string
+                                }
+                            >
+                                <GitHubIcon fontSize="small" color="primary" />
+                            </IconButton>
+                            <Typography
+                                component="span"
+                                color="textSecondary"
+                                variant="caption"
+                            >
+                                dkershner6
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <IconButton
+                                size="small"
+                                href={
+                                    siteConfig.customFields
+                                        ?.linkedInUrl as string
+                                }
+                            >
+                                <LinkedInIcon
+                                    fontSize="small"
+                                    color="primary"
+                                />
+                            </IconButton>
+                            <Typography
+                                component="span"
+                                color="textSecondary"
+                                variant="caption"
+                            >
+                                {(
+                                    siteConfig.customFields
+                                        ?.linkedInUrl as string
+                                )?.replace("https://www.linkedin.com/in/", "")}
+                            </Typography>
+                        </Box>
+                    </Grid>
+                </Grid>
             </AppBar>
         );
     };
@@ -143,13 +330,12 @@ const Resume = () => {
     const renderLeftColumn = () => {
         return (
             <Box display="flex" flexDirection="column" height="100%">
-                <Box marginBottom={theme.spacing(1)}>
+                <Box marginBottom={theme.spacing(2)}>
                     {renderHighlightedSkills()}
                 </Box>
-                <Box marginBottom={theme.spacing(1)}>{renderEducation()}</Box>
-                <Box marginBottom={theme.spacing(1)}>{renderReferences()}</Box>
-                <Box flex="1"></Box>
-                <Box marginBottom={theme.spacing(1)}>{renderBuiltWith()}</Box>
+                <Box marginBottom={theme.spacing(2)}>{renderEducation()}</Box>
+                <Box marginBottom={theme.spacing(2)}>{renderReferences()}</Box>
+                <Box marginBottom={theme.spacing(2)}>{renderBuiltWith()}</Box>
             </Box>
         );
     };
@@ -157,10 +343,18 @@ const Resume = () => {
     const renderHighlightedSkills = () => {
         return (
             <Card>
-                <CardHeader subheader="Highlighted Skills" />
-                <CardContent sx={{ paddingTop: 0 }}>
-                    {HIGHLIGHTED_SKILLS.map((skill) => (
-                        <Typography key={skill} variant="body2">
+                <CardHeader
+                    title="Highlighted Skills"
+                    titleTypographyProps={{ color: "primary" }}
+                />
+                <CardContent>
+                    {HIGHLIGHTED_SKILLS_MAP[RESUME_TYPE].map((skill) => (
+                        <Typography
+                            key={skill}
+                            variant="body2"
+                            fontWeight={800}
+                            gutterBottom
+                        >
                             {skill}
                         </Typography>
                     ))}
@@ -172,8 +366,8 @@ const Resume = () => {
     const renderEducation = () => {
         return (
             <Card>
-                <CardHeader subheader="Education" />
-                <CardContent sx={{ paddingTop: 0 }}>
+                <CardHeader title="Education" />
+                <CardContent>
                     <Typography variant="body2">
                         University of Oregon, 2005
                     </Typography>
@@ -188,9 +382,12 @@ const Resume = () => {
     const renderReferences = () => {
         return (
             <Card>
-                <CardHeader subheader="Recommendations / References" />
-                <CardContent sx={{ paddingTop: 0 }}>
-                    <Typography variant="body2">
+                <CardHeader
+                    title="Recommendations / References"
+                    titleTypographyProps={{ fontSize: 15 }}
+                />
+                <CardContent>
+                    <Typography variant="body2" gutterBottom>
                         Many recommendations available on LinkedIn.
                     </Typography>
                     <Typography variant="body2">
@@ -212,10 +409,18 @@ const Resume = () => {
     const renderRightColumn = () => {
         return (
             <Box>
-                <Box marginBottom={theme.spacing(1)}>{renderEformed()}</Box>
-                <Box marginBottom={theme.spacing(1)}>{renderCbt()}</Box>
-                <Box marginBottom={theme.spacing(1)}>{renderConsulting()}</Box>
-                <Box marginBottom={theme.spacing(1)}>{renderAltrec()}</Box>
+                <Box marginBottom={theme.spacing(2)}>{renderEformed()}</Box>
+                <Box marginBottom={theme.spacing(2)}>
+                    {CONSULTING_FORWARD_RESUME_TYPES.includes(RESUME_TYPE)
+                        ? renderConsulting()
+                        : renderCbt()}
+                </Box>
+                <Box marginBottom={theme.spacing(2)}>
+                    {CONSULTING_FORWARD_RESUME_TYPES.includes(RESUME_TYPE)
+                        ? renderCbt()
+                        : renderConsulting()}
+                </Box>
+                <Box marginBottom={theme.spacing(2)}>{renderAltrec()}</Box>
             </Box>
         );
     };
@@ -226,13 +431,26 @@ const Resume = () => {
                 <CardHeader
                     title="Chief Technology Officer"
                     subheader="eFormed Partners, 05/21 - Present"
+                    action={
+                        <IconButton>
+                            <CartIcon color="primary" />
+                        </IconButton>
+                    }
                 />
-                <CardContent sx={{ paddingTop: 0 }}>
+                <CardContent>
+                    <Typography variant="body2">
+                        Significant hands-on contribution in Architecture,
+                        Infrastructure, DevOps, and Feature Engineering.
+                    </Typography>
                     <Typography variant="body2">
                         Built & empowered team to create B2B (Supply) and B2C
                         (Storefront) marketplace e-commerce platform from the
                         ground up in a multi-year agile development process that
                         delivered specified product requirements early (25%).
+                    </Typography>
+                    <Typography variant="body2">
+                        Platform able to achieve 99.99% availability across two
+                        regions and experienced no scale related latency.
                     </Typography>
                     <Typography variant="body2">
                         Developer experience was consistently reviewed as very
@@ -241,6 +459,16 @@ const Resume = () => {
                         innovation such as fully automated CI/CD and fully
                         automated, standardized repository creation and
                         configuration.
+                    </Typography>
+                    <Typography variant="body2">
+                        Selected Architecture: Microservices in a Service
+                        Oriented Architecture using Domain Driven Design
+                        combined with Event-Driven Architecture.
+                    </Typography>
+                    <Typography variant="body2" fontWeight={800}>
+                        Selected Tech: AWS, TypeScript, AWS CDK, DynamoDB,
+                        Open/ElasticSearch, Lambda, Express, GraphQL, React,
+                        Next.js
                     </Typography>
                 </CardContent>
             </Card>
@@ -259,14 +487,28 @@ const Resume = () => {
                             {`Senior Software Engineer`}
                         </>
                     }
+                    action={
+                        <IconButton>
+                            <ArchitectureIcon color="primary" />
+                        </IconButton>
+                    }
                 />
-                <CardContent sx={{ paddingTop: 0 }}>
+                <CardContent>
                     <Typography variant="body2">
                         Was Architect and Advocate for the most productive
                         Software Engineering team in the company managing
                         complex domains, providing 50% above average code impact
                         and personally being the single most impactful engineer
                         (Pluralsight Flow measured).
+                    </Typography>
+                    <Typography variant="body2">
+                        {
+                            "Chosen as architect for EdTech skunkworks style project to broaden the company's product offering."
+                        }
+                    </Typography>
+                    <Typography variant="body2" fontWeight={800}>
+                        Tech: AWS, JavaScript/TypeScript, AWS CDK, DynamoDB,
+                        Lambda, ECS, Express, GraphQL, React, Websockets
                     </Typography>
                 </CardContent>
             </Card>
@@ -279,8 +521,13 @@ const Resume = () => {
                 <CardHeader
                     title="Principal Consultant"
                     subheader="Kershner Endeavors, 10/14 - Present"
+                    action={
+                        <IconButton>
+                            {<EngineeringIcon color="primary" />}
+                        </IconButton>
+                    }
                 />
-                <CardContent sx={{ paddingTop: 0 }}>
+                <CardContent>
                     <Typography variant="body2">
                         Consulted and Partnered with companies such as Laird
                         Superfood, founded startups, experienced successful
@@ -288,11 +535,20 @@ const Resume = () => {
                         Paddles.
                     </Typography>
                     <Typography variant="body2">
-                        Contributed to open-source software libraries such as
-                        Projen and the AWS CDK.
+                        {MOBILE_FORWARD_RESUME_TYPES.includes(RESUME_TYPE)
+                            ? "Created a mobile app for Picky Bars that allowed for editing of subscription boxes, the core product for the business."
+                            : "Contributed to open-source software libraries such as Projen and the AWS CDK."}
                     </Typography>
                     <Typography variant="body2">
-                        Volunteered for non-profits.
+                        Volunteered for non-profits, including development of a
+                        web & mobile app to capture patient acuity for a health
+                        clinic.
+                    </Typography>
+                    <Typography variant="body2" fontWeight={800}>
+                        Sample of Tech: AWS, Azure, Google Cloud, TypeScript,
+                        .NET, Python, AWS CDK, DynamoDB, CosmosDB, PostgreSQL,
+                        MSSQL, Lambda, Azure Functions, Google Firebase, React,
+                        React Native, Next.js
                     </Typography>
                 </CardContent>
             </Card>
@@ -313,8 +569,13 @@ const Resume = () => {
                             }
                         </>
                     }
+                    action={
+                        <IconButton>
+                            {<AnalyticsIcon color="primary" />}
+                        </IconButton>
+                    }
                 />
-                <CardContent sx={{ paddingTop: 0 }}>
+                <CardContent>
                     <Typography variant="body2">
                         Handled the sourcing and presentation of all company
                         analysis and reporting to the rest of the senior
@@ -338,6 +599,7 @@ const Resume = () => {
     return (
         <Container maxWidth="md">
             {renderHeader()}
+
             <Grid container marginTop={theme.spacing(1)} spacing={1}>
                 <Grid size={{ sm: 3 }}>{renderLeftColumn()}</Grid>
                 <Grid size={{ sm: 9 }}>{renderRightColumn()}</Grid>

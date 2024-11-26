@@ -1,12 +1,11 @@
 ---
-title: Refactoring
-description: Using key-value stores are all about consistency (as is any database actually, but simple databases are far less forgiving of inconsistencies). This book establishes reasonable, practiced patterns that will help you from making simple mistakes in your data modeling journey.
-image: /img/books/refactoring.png
+title: Staff Engineer
+description: "This book is all about defining the job role behind a Staff Engineer: What are you supposed to focus on? How do you best contribute?"
 tags:
     - learning
     - fundamentals
     - books
-    - Martin Fowler
+    - Will Larson
     - mentorship
     - score-3
     - engineering
