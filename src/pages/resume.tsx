@@ -29,21 +29,28 @@ const PHONE_NUMBER = process.env.PHONE_NUMBER;
 const enum ResumeType {
     CARMA,
     FINCH_CARE,
+    FIRST_AMERICAN,
     HEADWAY,
     HUMAN_INTEREST,
+    INOVALON,
+    LITMOS,
     MEDBILL_AI,
+    NARRATIZE,
     OFFER_FIT,
+    SCRUM_ALLIANCE,
     WILLOW_HEALTH,
 
     AWS_REACT_TS,
     AWS_DATA_SCRAPING,
+    LEADERSHIP,
 }
 
-const RESUME_TYPE = ResumeType.AWS_REACT_TS;
+const RESUME_TYPE = ResumeType.FIRST_AMERICAN;
 
 const CONSULTING_FORWARD_RESUME_TYPES = [
     ResumeType.CARMA,
     ResumeType.FINCH_CARE,
+    ResumeType.INOVALON,
     ResumeType.MEDBILL_AI,
     ResumeType.WILLOW_HEALTH,
 ];
@@ -51,6 +58,7 @@ const CONSULTING_FORWARD_RESUME_TYPES = [
 const MOBILE_FORWARD_RESUME_TYPES = [
     ResumeType.CARMA,
     ResumeType.FINCH_CARE,
+    ResumeType.INOVALON,
     ResumeType.MEDBILL_AI,
 ];
 
@@ -72,6 +80,17 @@ const HIGHLIGHTED_SKILLS_MAP: Record<ResumeType, string[]> = {
         "5+ yrs Senior Leadership",
         "5+ yrs in Startups",
     ],
+    [ResumeType.FIRST_AMERICAN]: [
+        "6+ yrs AWS (incl. all listed services)",
+        "10+ yrs Cloud Architecture",
+        "6+ yrs C#/.NET Core",
+        "8+ yrs DevOps, CI/CD, IaC",
+        "6+ yrs Docker",
+        "10+ yrs Full-Stack Software",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL (DynamoDB)",
+        "8+ yrs React / TypeScript",
+    ],
     [ResumeType.HEADWAY]: [
         "6+ yrs AWS",
         "10+ yrs Cloud Architecture",
@@ -92,6 +111,30 @@ const HIGHLIGHTED_SKILLS_MAP: Record<ResumeType, string[]> = {
         "8+ yrs React",
         "8+ yrs TypeScript",
     ],
+    [ResumeType.INOVALON]: [
+        "3+ yrs ASP.NET Core",
+        "6+ yrs Azure (incl. Azure DevOps",
+        "10+ yrs Cloud Architecture",
+        "8+ yrs Containers",
+        "5+ yrs Founding Startups",
+        "3+ yrs Mobile App Development (React Native)",
+        "5+ yrs Offshore Management",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.LITMOS]: [
+        "6+ yrs AWS",
+        "6+ yrs Azure",
+        "10+ yrs Cloud Architecture",
+        "8+ yrs Containers",
+        "6+ yrs C#/.NET Core",
+        "8+ yrs DevOps, CI/CD",
+        "2 yrs EdTech",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL (incl OpenSearch, Redis)",
+        "8+ yrs React / TypeScript",
+    ],
     [ResumeType.MEDBILL_AI]: [
         "6+ yrs AWS",
         "10+ yrs Cloud Architecture",
@@ -103,6 +146,16 @@ const HIGHLIGHTED_SKILLS_MAP: Record<ResumeType, string[]> = {
         "8+ yrs React / TypeScript",
         "3+ yrs React Native",
     ],
+    [ResumeType.NARRATIZE]: [
+        "Experimented with AI LLMs",
+        "6+ yrs AWS",
+        "10+ yrs Cloud Architecture",
+        "10+ yrs Data Analytics",
+        "5+ yrs Founding Startups",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
+        "8+ yrs React / TypeScript",
+    ],
     [ResumeType.OFFER_FIT]: [
         "10+ yrs Cloud Architecture",
         "8+ yrs Containers, Some Kubernetes",
@@ -110,6 +163,17 @@ const HIGHLIGHTED_SKILLS_MAP: Record<ResumeType, string[]> = {
         "5+ yrs Senior Leadership",
         "14+ yrs SQL, 6+ yrs NoSQL",
         "8+ yrs React / TypeScript",
+    ],
+    [ResumeType.SCRUM_ALLIANCE]: [
+        "6+ yrs Azure",
+        "3+ yrs Azure DevOps, 8+ yrs GitHub Actions",
+        "6+ yrs C#/.NET Core",
+        "10+ yrs Cloud Architecture",
+        "15+ yrs E-Commerce, incl 3rd Party Platforms (and creating one)",
+        "10+ yrs Full-Stack Software",
+        "5+ yrs Founding Startups",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
     ],
     [ResumeType.WILLOW_HEALTH]: [
         "10+ yrs Cloud Architecture",
@@ -123,8 +187,10 @@ const HIGHLIGHTED_SKILLS_MAP: Record<ResumeType, string[]> = {
         "8+ yrs React / TypeScript",
     ],
     [ResumeType.AWS_REACT_TS]: [
-        // "6+ yrs AWS",
+        "6+ yrs AWS",
+        "6+ yrs Azure",
         "10+ yrs Cloud Architecture",
+        "8+ yrs DevOps, CI/CD",
         "5+ yrs Founding Startups",
         "8+ yrs Open Source Software",
         "14+ yrs SQL, 6+ yrs NoSQL",
@@ -138,6 +204,15 @@ const HIGHLIGHTED_SKILLS_MAP: Record<ResumeType, string[]> = {
         "8+ yrs Open Source Software",
         "3+ yrs Puppeteer",
         "8+ yrs TypeScript",
+    ],
+    [ResumeType.LEADERSHIP]: [
+        "Experimented with AI LLMs",
+        "10+ yrs Cloud Architecture",
+        "10+ yrs Full-Stack Software",
+        "5+ yrs Founding Startups",
+        "8+ yrs Open Source Software",
+        "5+ yrs Senior Leadership",
+        "14+ yrs SQL, 6+ yrs NoSQL",
     ],
 };
 
@@ -384,6 +459,11 @@ const Resume = () => {
                         innovation such as fully automated CI/CD and fully
                         automated, standardized repository creation and
                         configuration.
+                    </Typography>
+                    <Typography variant="body2">
+                        Selected Architecture: Microservices in a Service
+                        Oriented Architecture using Domain Driven Design
+                        combined with Event-Driven Architecture.
                     </Typography>
                     <Typography variant="body2" fontWeight={800}>
                         Selected Tech: AWS, TypeScript, AWS CDK, DynamoDB,
